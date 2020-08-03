@@ -1,0 +1,37 @@
+You should build a space trading game. Each game should be new and should allow player
+
+
+Built a prototype of a space trading game
+
+Who has the best story
+Best User experience in console application
+
+Space Trading Game
+
+Start on Earth
+Have at least 5 planets which the player can travel
+Player at start of game should be 18 years old
+Game ends when the player reaches the game goal or ages to 60 years of age
+
+Primary goal of the game is to amass wealth by trading goods and services between planets 
+
+You write the story.
+Your game should have a "good" and a "bad" ending
+Your game should have a compelling story
+User interface shoult be a TUI built as a console application
+
+Travel between planets should follow a standard "warp speed" calculation (Client will provide)
+Planets should be arranged on a 2D X/Y coordinate system such that distance between planets are provided by the pythagoreon theorem
+Earth should be at (x= 0, y = 0)
+One of the remaining 4 (minimum) planets should be alpha proxima 1 (x= ~4.7, y = 0)
+Travel between planets should occur at a user-defined speed specified in warp units.
+
+Ships have a specfied capacity which can not be exceeded.
+
+#Warp Equation 
+Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in mulitplies of the speed of light = W^(10/3) + (10-W)^(-11/3).
+
+Thus if you want to travel a location 1 light year away in one day, you need a warp factor which equates to a velocity of 365.25 times the speed of light.
+
+#Stretch Goals
+Space should flying mini game (asteroid field)
