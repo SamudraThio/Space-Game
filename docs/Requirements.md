@@ -1,6 +1,5 @@
 You should build a space trading game. Each game should be new and should allow player
 
-
 Built a prototype of a space trading game
 
 Who has the best story
