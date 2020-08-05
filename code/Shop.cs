@@ -2,22 +2,42 @@ using System;
 using System.Collections.Generic;
 
 namespace Space_Game
-{   // This class is for the shop on each planet and the trading system
-
-    public class StoreItems : List<StoreItems>
+{
+    public class Store
     {
-        public string itemName
+        // Items are marked with the name and price
+        public string itemName;
+        public decimal itemPrice;
+
+
+        public StoreInventory(
+                string itemName, decimal itemPrice)
+            {
+                this.itemName = itemName;
+                this.itemPrice = itemPrice;
+            }
+
+        public string ItemName
         {
-            get;
-            set;
+            get { return itemName;  }
+            set { itemName = value;  }
         }
-        
-        public decimal itemCost
+
+        public decimal ItemPrice
         {
-            get;
-            set;
+            get { return itemPrice; }
+            set { itemPrice = value; }
         }
     }
+}
+
+    
+    
+    
+    
+    
+    
+    /* This class is for the shop on each planet and the trading system
 
     public class Shop
     {
@@ -33,14 +53,17 @@ namespace Space_Game
         // Sets the store inventory
         public class StoreInventory
         {
-            List<StoreItems> storeInventory;
+            List<string> storeInventory = new List<string>();
+            storeInventory.Add("Water");
+            storeInventory.Add("Fuel");
+            storeInventory.Add("Oxygen");
+
         }
 
         // Sets the name of the Merchant and assigns the items they'll sell
         public Shop(string name)
         {
             MerchantName = name;
-            List<StoreItems> storeInventory = new List<StoreItems>();
             storeInventory.Add(Water);
             storeInventory.Add(Fuel);
             storeInventory.Add(Oxygen);
@@ -83,4 +106,7 @@ namespace Space_Game
             shopkeepers.add();
         }
     }
+
+    *\
+
 }

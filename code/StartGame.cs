@@ -24,7 +24,7 @@ namespace StartGame
             }
             finally
             {
-                //SignOff();
+                ExitGame.exitGame();
             }
         }
     }
