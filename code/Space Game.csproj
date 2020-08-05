@@ -5,4 +5,14 @@
     <RootNamespace>Space_Game</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="MainMenu.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Menu" />
+    <None Remove="NewFile1.txt" />
+    <None Remove="StartGame" />
+  </ItemGroup>
+
 </Project>

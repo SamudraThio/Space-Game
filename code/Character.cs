@@ -4,12 +4,12 @@ namespace Space_Game
 {
     public class Character
     {
-        int age;
-        int fuel;
+        public int age;
+        public int fuel;
 
-        string name;
+        public string name;
 
-        decimal totalMoney;
+        public decimal totalMoney;
     }
 }
 

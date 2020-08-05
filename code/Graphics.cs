@@ -1,10 +1,11 @@
 using System;
+using System.Text;
 
 namespace Space_Game
 {
     public class Graphics
     {
-        public SplashScreen()
+        public static void SplashScreen()
         {
             //Font courtesy of ascii.co.uk
             Console.SetWindowSize(120, 60);
@@ -57,7 +58,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             //TODO Program.MainMenu(); rename this to whatever our entry point will be
         }
 
-        public MainMenu()
+        public static void MainMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -77,7 +78,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public TravelMenu()
+        public static void TravelMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -87,11 +88,11 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 //                            SELECT A PLANET TO TRAVEL TO                                   //
 //                                                                                           //
 //                                                        Travel time:                       //
-//                            1. {galaxy.planet1}         {travelTime}                       //
-//                            2. {galaxy.planet2}         {travelTime}                       //
-//                            3. {galaxy.planet3}         {travelTime}                       //
-//                            4. {galaxy.planet4}         {travelTime}                       //
-//                            5. {galaxy.planet5}         {travelTime}                       //
+//                            1. {Galaxy.planet1}         {travelTime}                       //
+//                            2. {Galaxy.planet2}         {travelTime}                       //
+//                            3. {Galaxy.planet3}         {travelTime}                       //
+//                            4. {Galaxy.planet4}         {travelTime}                       //
+//                            5. {Galaxy.planet5}         {travelTime}                       //
 //                            6. Return to main menu                                         //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
@@ -100,7 +101,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public ShoppingMainMenu()
+        public static void ShoppingMainMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -119,7 +120,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public ShoppingBuyMenu()
+        public static void ShoppingBuyMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -144,7 +145,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 
         //TODO implement shopping buy submenu where user can enter number of units to purchase.
 
-        public HeadsUpDisplay()
+        public static void HeadsUpDisplay()
         {
 
             Console.WriteLine(@$"

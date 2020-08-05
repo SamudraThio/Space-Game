@@ -65,5 +65,23 @@ namespace Space_Game
             resourceName2 = "oxygen";
             resourceName3 = "fuel";
         }
+        public double Distance(Planet currentPlanet, Planet newPlanet)
+        {
+            //Pulls distance using coordinates of the current planet and new planet
+
+            double x1 = currentPlanet.xcoord;
+            double y1 = currentPlanet.ycoord;
+            double x2 = newPlanet.xcoord;
+            double y2 = newPlanet.ycoord;
+
+            double findx = Math.Pow(x2 - x1, 2);
+            double findy = Math.Pow(y2 - y1, 2);
+
+            double distance = Math.Sqrt(findx + findy);
+
+            return distance;
+        }
+
+
     }
 }
