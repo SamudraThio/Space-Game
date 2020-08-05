@@ -31,56 +31,59 @@ namespace Space_Game
             return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
-        public void AlphaProxima()
+        public static Planet AlphaProxima()
         {
-            planetName = "Alpha Proxima";
-            xcoord = 3.0;
-            ycoord = 0.0;
+            var planetName = "Alpha Proxima";
+            var xcoord = 3.0;
+            var ycoord = 0.0;
 
-            resourceName1 = "water";
-            resourceName2 = "oxygen";
-            resourceName3 = "fuel";
+            var resourceName1 = "water";
+            var resourceName2 = "oxygen";
+            var resourceName3 = "fuel";
+
+            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
-        public void Exandria()
+        public static Planet Exandria()
         {
-            planetName = "Exandria";
-            xcoord = -3.0;
-            ycoord = 0.0;
+            var planetName = "Exandria";
+            var xcoord = -3.0;
+            var ycoord = 0.0;
 
-            resourceName1 = "water";
-            resourceName2 = "oxygen";
-            resourceName3 = "fuel";
+            var resourceName1 = "water";
+            var resourceName2 = "oxygen";
+            var resourceName3 = "fuel";
+
+            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
-        public void Midgard()
+        public static Planet Midgard()
         {
-            planetName = "Midgard";
-            xcoord = 0.0;
-            ycoord = 3.0;
+            var planetName = "Midgard";
+            var xcoord = 0.0;
+            var ycoord = 3.0;
 
-            resourceName1 = "water";
-            resourceName2 = "oxygen";
-            resourceName3 = "fuel";
+            var resourceName1 = "water";
+            var resourceName2 = "oxygen";
+            var resourceName3 = "fuel";
+
+            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
-        public void MiddleEarth()
+        public static Planet MiddleEarth()
         {
-            planetName = "MiddleEarth";
-            xcoord = 0.0;
-            ycoord = -3.0;
+            var planetName = "MiddleEarth";
+            var xcoord = 0.0;
+            var ycoord = -3.0;
 
-            resourceName1 = "water";
-            resourceName2 = "oxygen";
-            resourceName3 = "fuel";
+            var resourceName1 = "water";
+            var resourceName2 = "oxygen";
+            var resourceName3 = "fuel";
+
+            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
-        public void Travel()
-        {
-            //TODO: Distance / Fuel Units = FuelBurned
-            //Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W^(10/3)  + (10 − W)^(-11/3).
-            
-        }
+       
 
 
     }

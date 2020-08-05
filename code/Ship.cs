@@ -67,5 +67,17 @@ namespace Space_Game
             return distance;
 
         }
+
+        public void Travel(Planet newPlanet)
+        {
+            //TODO: Distance / Fuel Units = FuelBurned
+            //Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W^(10/3)  + (10 ? W)^(-11/3).
+
+            //int warpLevel = 0;
+
+
+            //currentPlanet = newPlanet;
+
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace StartGame
                 bool displayMenu = true;
                 while (displayMenu)
                 {
-                    displayMenu = MainMenu.mainMenu();
+                    displayMenu = Menu.MainMenu();
                 }
             }
 

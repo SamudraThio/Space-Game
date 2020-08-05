@@ -24,7 +24,7 @@ namespace Space_Game
         public decimal totalMoney; // Can we pull this from Character class?
 
         // Sets the name of the Merchant 
-        public string Name
+        public string MerchantName
         {
             get;
             set;
@@ -33,14 +33,17 @@ namespace Space_Game
         // Sets the store inventory
         public class StoreInventory
         {
-            List<StoreItems> storeinventory = new List<StoreItems>();
+            List<StoreItems> storeInventory;
         }
 
         // Sets the name of the Merchant and assigns the items they'll sell
         public Shop(string name)
         {
-            Name = name;
-            Inventory = new List<StoreItems>();
+            MerchantName = name;
+            List<StoreItems> storeInventory = new List<StoreItems>();
+            storeInventory.Add(Water);
+            storeInventory.Add(Fuel);
+            storeInventory.Add(Oxygen);
         }
 
         public void BuyItem(StoreItems item)

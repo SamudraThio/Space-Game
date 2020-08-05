@@ -23,7 +23,7 @@ namespace Space_Game
                     Graphics.ShoppingMainMenu();
                     return true;
                 case "4":
-                    exitGame();
+                    ExitGame.exitGame();
                     return false;
                 default:
                     return true;
@@ -39,7 +39,7 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    TravelToEarth();
+                    Planet.Travel(Planet.Earth);
                     return true;
                 case "2":
                     TravelTo2();
@@ -70,23 +70,20 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    Graphics.TravelMenu();
+                    ShoppingBuyMenu();
                     return true;
                 case "2":
-                    Graphics.ShoppingMainMenu();
+                    ShoppingSellMenu();
                     return true;
                 case "3":
                     Graphics.ShoppingMainMenu();
-                    return true;
-                case "4":
-                    exitGame();
                     return false;
                 default:
                     return true;
             }
         }
 
-        public bool ShoppingBuyMneu()
+        public bool ShoppingBuyMenu()
         {
             Console.Clear();
             Graphics.ShoppingBuyMenu();
@@ -95,16 +92,47 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    BuyResource1();
+                    Shop.BuyItem();
                     return true;
                 case "2":
-                    BuyResource2();
+                    Shop.BuyItem();
                     return true;
                 case "3":
-                    BuyResource3();
+                    Shop.BuyItem();
                     return true;
                 case "4":
-                    BuyFuel();
+                    Shop.BuyFuel();
+                    return true;
+                case "5":
+                    Graphics.ShoppingMainMenu();
+                    return false;
+                case "6":
+                    MainMenu();
+                    return false;
+                default:
+                    return true;
+            }
+        }
+
+        public bool ShoppingSellMenu()
+        {
+            Console.Clear();
+            Graphics.ShoppingBuyMenu();
+            Graphics.HeadsUpDisplay();
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Shop.SellItem();
+                    return true;
+                case "2":
+                    Shop.SellItem();
+                    return true;
+                case "3":
+                    Shop.SellItem();
+                    return true;
+                case "4":
+                    Shop.SellFuel();
                     return true;
                 case "5":
                     Graphics.ShoppingMainMenu();
