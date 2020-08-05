@@ -65,18 +65,19 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(@"
-///////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                           //
-//                                       LOST IN SPACE!                                      //
-//                                                                                           //
-//                            1. Travel to a new planet                                      //
-//                            2. Shop resources                                              //
-//                            3. Buy fuel                                                    //
-//                            4. Exit game                                                   //
-//                                                                                           //
-///////////////////////////////////////////////////////////////////////////////////////////////");
+***********************************************************************************************
+**                                                                                           **
+**                                       LOST IN SPACE!                                      **
+**                                                                                           **
+**                            1. Travel to a new planet                                      **
+**                            2. Shop resources                                              **
+**                            3. Buy fuel                                                    **
+**                            4. Exit game                                                   **
+**                                                                                           **
+***********************************************************************************************");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            HeadsUpDisplay();
         }
 
         public static void TravelMenu()
@@ -84,22 +85,23 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(@$"
-///////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                           //
-//                            SELECT A PLANET TO TRAVEL TO                                   //
-//                                                                                           //
-//                                                        Travel time:                       //
-//                            1. Earth                                                       //
-//                            2. planet 2                                                    //
-//                            3. planet 3                                                    //
-//                            4. planet 4                                                    //
-//                            5. planet 5                                                    //
-//                            6. Return to main menu                                         //
-//                                                                                           //
-///////////////////////////////////////////////////////////////////////////////////////////////");
+***********************************************************************************************
+**                                                                                           **
+**                            SELECT A PLANET TO TRAVEL TO                                   **
+**                                                                                           **
+**                                                        Travel time:                       **
+**                            1. Earth                                                       **
+**                            2. Alpha Proxima                                               **
+**                            3. Exandria                                                    **
+**                            4. Midgard                                                     **
+**                            5. MiddleEarth                                                 **
+**                            6. Return to main menu                                         **
+**                                                                                           **
+***********************************************************************************************");
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            HeadsUpDisplay();
         }
 
         public static void ShoppingMainMenu()
@@ -142,19 +144,23 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            HeadsUpDisplay();
         }
 
         //TODO implement shopping buy submenu where user can enter number of units to purchase.
 
         public static void HeadsUpDisplay()
         {Console.WriteLine(@$"
-//                                                                                           //
-//       Captain Kirk              USS Enterprise            Loadout                         //
-//       Age: 18                   Fuel: 10/10               Water: 3                        //
-//       Money: $1,000,000         Load: 10/10               Gold: 2                         //
-//       Planet: Earth                                       Oxygen: 5                       //
-//                                                                                           //
-///////////////////////////////////////////////////////////////////////////////////////////////");
+**___________________________________________________________________________________________**
+**                                                                                           **
+**     | Captain Kirk |           | USS Enterprise |        | Cargo |                        **
+**___________________________________________________________________________________________**
+**                                                                                           **
+**       Age:    18                 Fuel: 10/10              Water:  3                       **
+**       Money:  $1,000,000         Load: 10/10              Gold:   2                       **
+**       Planet: Earth                                       Oxygen: 5                       **
+**                                                                                           **
+***********************************************************************************************");
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();

@@ -8,19 +8,18 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.MainMenu();
-            Graphics.HeadsUpDisplay();
             //DisplayTaskList();
 
             switch (Console.ReadLine())
             {
                 case "1":
-                    Graphics.TravelMenu();
+                    Planet.Travel();
                     return true;
                 case "2":
-                    Graphics.ShoppingMainMenu();
+                    Store.Shop();
                     return true;
                 case "3":
-                    Graphics.ShoppingMainMenu();
+                    Store.Shop();
                     return true;
                 case "4":
                     ExitGame.exitGame();
@@ -34,7 +33,6 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.TravelMenu();
-            Graphics.HeadsUpDisplay();
 
             switch (Console.ReadLine())
             {
@@ -55,7 +53,7 @@ namespace SpaceGame
                     return true;
                 case "6":
                     MainMenu();
-                    return false;
+                    return true;
                 default:
                     return true;
             }
@@ -65,7 +63,6 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.ShoppingMainMenu();
-            Graphics.HeadsUpDisplay();
 
             switch (Console.ReadLine())
             {
@@ -87,21 +84,20 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.ShoppingBuyMenu();
-            Graphics.HeadsUpDisplay();
 
             switch (Console.ReadLine())
             {
                 case "1":
-                    Store.BuyItem();
+                    Store.Buy();
                     return true;
                 case "2":
-                    Store.BuyItem();
+                    Store.Buy();
                     return true;
                 case "3":
-                    Store.BuyItem();
+                    Store.Buy();
                     return true;
                 case "4":
-                    Store.BuyItem();
+                    Store.Buy();
                     return true;
                 case "5":
                     Graphics.ShoppingMainMenu();
@@ -118,7 +114,6 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.ShoppingBuyMenu();
-            Graphics.HeadsUpDisplay();
 
             switch (Console.ReadLine())
             {

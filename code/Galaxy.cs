@@ -10,12 +10,15 @@ namespace SpaceGame
         public double ycoord;
         public List<string> resources;
 
-        //Stand-in code for the TravelMenu
+        //Stand-in code for the TravelMenu-----------------------------------
         public static void Travel()
         {
-            Console.WriteLine("Travel To method");
+            Console.Clear();
+            Graphics.TravelMenu();
+            Console.WriteLine("Travel To method gets called with selection.");
+            Console.ReadLine();
         }
-
+        //--------------------------------------------------------------------
 
 
         public Planet(string planetName, double xcoord, double ycoord, List<string> resources)
