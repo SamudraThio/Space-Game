@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 
-namespace Space_Game
+namespace SpaceGame
 {
     public class Graphics
     {
@@ -74,7 +75,6 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 //                            4. Exit game                                                   //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
-
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -89,11 +89,11 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 //                            SELECT A PLANET TO TRAVEL TO                                   //
 //                                                                                           //
 //                                                        Travel time:                       //
-//                            1. {Planet.Earth(planetName)}         {travelTime}                       //
-//                            2. {Galaxy.planet2}         {travelTime}                       //
-//                            3. {Galaxy.planet3}         {travelTime}                       //
-//                            4. {Galaxy.planet4}         {travelTime}                       //
-//                            5. {Galaxy.planet5}         {travelTime}                       //
+//                            1. Earth                                                       //
+//                            2. planet 2                                                    //
+//                            3. planet 3                                                    //
+//                            4. planet 4                                                    //
+//                            5. planet 5                                                    //
 //                            6. Return to main menu                                         //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
@@ -131,10 +131,10 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 //                              SELECT A RESOURCE TO PURCHASE                                //
 //                                                                                           //
 //                                                   Resource cost per unit:                 //
-//                            1. {resource1}         {resource1.cost}                        //
-//                            2. {resource2}         {resource1.cost}                        //
-//                            3. {resource3}         {resource1.cost}                        //
-//                            4. {fuel}              {fuel.cost}                             // 
+//                            1. Resource 1                                                  //
+//                            2. resource 2                                                  //
+//                            3. resource 3                                                  //
+//                            4. fuel                                                        // 
 //                            5. Return to shopping menu                                     // 
 //                            6. Return to main menu                                         //
 //                                                                                           //
@@ -147,24 +147,14 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
         //TODO implement shopping buy submenu where user can enter number of units to purchase.
 
         public static void HeadsUpDisplay()
-        {
-
-            Console.WriteLine(@$"
+        {Console.WriteLine(@$"
 //                                                                                           //
-//       {Character.Name}, you are now {Character.Age} years young!                          //
-//       You have {Character.TimeLeft} of space travel ahead of you!                         //
-//                                                                                           //
-//       You are currently on planet {Planet.Name}.                                          //
-//                                                                                           //                                  
-//       You have ${Character.Money}.                                                        //  
-//                                                                                           //                                                                                
-//       Your ship has {Ship.Fuel} units of fuel onboard.                                    //
-//                                                                                           //
-//       You currently have {water.count} units of water, {gold.count}, lbs of gold, {oxygen.count} cylinders of oxygen   //
+//       Captain Kirk              USS Enterprise            Loadout                         //
+//       Age: 18                   Fuel: 10/10               Water: 3                        //
+//       Money: $1,000,000         Load: 10/10               Gold: 2                         //
+//       Planet: Earth                                       Oxygen: 5                       //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
-
-
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();

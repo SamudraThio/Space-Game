@@ -1,4 +1,4 @@
-namespace Space_Game
+namespace SpaceGame
 {
     //TODO Develop trading system - X product goes to [planet] to be sold for how much?
 

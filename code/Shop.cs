@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Space_Game
+namespace SpaceGame
 {
     public class Store
     {
@@ -9,13 +9,24 @@ namespace Space_Game
         public string itemName;
         public decimal itemPrice;
 
+        // Stand in code for ShoppingBuyMenu
+        public static void BuyItem()
+        {
+            Console.WriteLine("BuyItem function here");
+        }
 
-        public StoreInventory(
-                string itemName, decimal itemPrice)
-            {
-                this.itemName = itemName;
-                this.itemPrice = itemPrice;
-            }
+        public static void SellItem()
+        {
+            Console.WriteLine("SellItem function here");
+        }
+
+
+        //public StoreInventory(
+        //        string itemName, decimal itemPrice)
+        //    {
+        //        this.itemName = itemName;
+        //        this.itemPrice = itemPrice;
+        //    }
 
         public string ItemName
         {
@@ -107,6 +118,5 @@ namespace Space_Game
         }
     }
 
-    *\
+    */
 
-}

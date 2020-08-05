@@ -1,12 +1,12 @@
 ﻿using System;
-using Space_Game;
+using SpaceGame;
 
-namespace StartGame
+namespace SpaceGame
 {
     public class StartGame
     
     {
-        static void Run()
+        public static void Run()
         {
             try
             {

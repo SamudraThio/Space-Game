@@ -1,7 +1,7 @@
 ﻿using System;
-using Space_Game;
+using SpaceGame;
 
-namespace Space_Game
+namespace SpaceGame
 {
     public class ExitGame
     {

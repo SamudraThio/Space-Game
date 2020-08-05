@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Space_Game
+namespace SpaceGame
 {
 
     public class Ship
@@ -41,7 +41,8 @@ namespace Space_Game
             // If the load does exceed the capacity of the truck, throw a "ShipOverLoad" exception
             else
             {
-                throw new ShipOverLoadException($"Weight of {toAdd.description} exceeds ship capacity by {weightWithNewLoad - capacity}");
+                //This probably needs to be console.writeline
+                //throw new ShipOverLoadException($"Weight of {toAdd.description} exceeds ship capacity by {weightWithNewLoad - capacity}");
             }
         }
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace Space_Game
+namespace SpaceGame
 {
     public class Character
     {

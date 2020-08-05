@@ -1,5 +1,5 @@
 ﻿using System;
-
+using SpaceGame;
 namespace SpaceGameConsole
 {
     class Program
@@ -8,7 +8,7 @@ namespace SpaceGameConsole
         {
             try
             {
-                new StartGame.Run(); 
+                StartGame.Run(); 
             }
 
             catch (Exception e)

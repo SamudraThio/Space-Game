@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Space_Game
+namespace SpaceGame
 {
     class Menu
     {
-        public bool MainMenu()
+        public static bool MainMenu()
         {
             Console.Clear();
             Graphics.MainMenu();
@@ -39,19 +39,19 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    Planet.Travel(Planet.Earth);
+                    Planet.Travel();
                     return true;
                 case "2":
-                    TravelTo2();
+                    Planet.Travel();
                     return true;
                 case "3":
-                    TravelTo3();
+                    Planet.Travel();
                     return true;
                 case "4":
-                    TravelTo4();
+                    Planet.Travel();
                     return true;
                 case "5":
-                    TravelTo5();
+                    Planet.Travel();
                     return true;
                 case "6":
                     MainMenu();
@@ -92,16 +92,16 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    Shop.BuyItem();
+                    Store.BuyItem();
                     return true;
                 case "2":
-                    Shop.BuyItem();
+                    Store.BuyItem();
                     return true;
                 case "3":
-                    Shop.BuyItem();
+                    Store.BuyItem();
                     return true;
                 case "4":
-                    Shop.BuyFuel();
+                    Store.BuyItem();
                     return true;
                 case "5":
                     Graphics.ShoppingMainMenu();
@@ -123,16 +123,16 @@ namespace Space_Game
             switch (Console.ReadLine())
             {
                 case "1":
-                    Shop.SellItem();
+                    Store.SellItem();
                     return true;
                 case "2":
-                    Shop.SellItem();
+                    Store.SellItem();
                     return true;
                 case "3":
-                    Shop.SellItem();
+                    Store.SellItem();
                     return true;
                 case "4":
-                    Shop.SellFuel();
+                    Store.SellItem();
                     return true;
                 case "5":
                     Graphics.ShoppingMainMenu();

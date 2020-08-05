@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Space_Game
+namespace SpaceGame
 {
     public class Planet
     {
@@ -9,6 +9,14 @@ namespace Space_Game
         public double xcoord;
         public double ycoord;
         public List<string> resources;
+
+        //Stand-in code for the TravelMenu
+        public static void Travel()
+        {
+            Console.WriteLine("Travel To method");
+        }
+
+
 
         public Planet(string planetName, double xcoord, double ycoord, List<string> resources)
         {
