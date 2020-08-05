@@ -12,6 +12,7 @@ namespace Space_Game
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Clear();
+            Console.WriteLine("This will be the splash screen");
             /*
             Console.WriteLine(@"
 
@@ -55,7 +56,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
             Console.Clear();
-            //TODO Program.MainMenu(); rename this to whatever our entry point will be
+            //TODO Program.MainMenu(); rename this to whatever our entry point will be, startgame?
         }
 
         public static void MainMenu()
@@ -88,7 +89,7 @@ _-"   .       '  +  .              .        ,//////0\ | /00HHHHHHHMMMMM
 //                            SELECT A PLANET TO TRAVEL TO                                   //
 //                                                                                           //
 //                                                        Travel time:                       //
-//                            1. {Galaxy.planet1}         {travelTime}                       //
+//                            1. {Planet.Earth(planetName)}         {travelTime}                       //
 //                            2. {Galaxy.planet2}         {travelTime}                       //
 //                            3. {Galaxy.planet3}         {travelTime}                       //
 //                            4. {Galaxy.planet4}         {travelTime}                       //

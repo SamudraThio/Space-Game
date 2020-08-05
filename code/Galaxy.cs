@@ -1,25 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Space_Game
 {
     public class Planet
     {
         string planetName;
-        double xcoord;
-        double ycoord;
-        string resourceName1;
-        string resourceName2;
-        string resourceName3;
+        public double xcoord;
+        public double ycoord;
+        public List<string> resources;
 
-        public void Earth()
+        public Planet(string planetName, double xcoord, double ycoord, List<string> resources)
         {
-            planetName = "Earth";
-            xcoord = 0.0;
-            ycoord = 0.0;
+            this.planetName = planetName;
+            this.xcoord = xcoord;
+            this.ycoord = ycoord;
+            this.resources = resources;
+        }
 
-            resourceName1 = "water";
-            resourceName2 = "oxygen";
-            resourceName3 = "fuel";
+        public static Planet Earth()
+        {
+            var planetName = "Earth";
+            var xcoord = 0.0;
+            var ycoord = 0.0;
+
+            var resourceName1 = "water";
+            var resourceName2 = "oxygen";
+            var resourceName3 = "fuel";
+
+            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
         }
 
         public void AlphaProxima()
@@ -65,21 +74,12 @@ namespace Space_Game
             resourceName2 = "oxygen";
             resourceName3 = "fuel";
         }
-        public double Distance(Planet currentPlanet, Planet newPlanet)
+
+        public void Travel()
         {
-            //Pulls distance using coordinates of the current planet and new planet
-
-            double x1 = currentPlanet.xcoord;
-            double y1 = currentPlanet.ycoord;
-            double x2 = newPlanet.xcoord;
-            double y2 = newPlanet.ycoord;
-
-            double findx = Math.Pow(x2 - x1, 2);
-            double findy = Math.Pow(y2 - y1, 2);
-
-            double distance = Math.Sqrt(findx + findy);
-
-            return distance;
+            //TODO: Distance / Fuel Units = FuelBurned
+            //Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W^(10/3)  + (10 − W)^(-11/3).
+            
         }
 
 

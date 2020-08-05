@@ -1,11 +1,14 @@
 using System;
+using System.Collections.Generic;
 
 namespace Space_Game
 {
+
     public class Ship
     {
         public int fuel; // Will track fuel and fuel capacity
         public int cargoCapacity; // Will track cargo weight capacity 
+        public Planet currentPlanet; //Will Track current location of the ship
 
         //TODO Warp Speed + Travel Costs (W:F)
 
@@ -16,7 +19,7 @@ namespace Space_Game
             //return loads.Select(l => l.weight).Sum();
             int totalWeight = 0;
 
-            foreach(var load in loads)
+            foreach (var load in loads)
             {
                 totalWeight += load.weight;
             }
@@ -30,7 +33,7 @@ namespace Space_Game
             var currentLoad = GetCurrentLoad();
             var weightWithNewLoad = currentLoad + toAdd.weight;
 
-            if(currentLoad + toAdd.weight <= cargoCapacity)
+            if (currentLoad + toAdd.weight <= cargoCapacity)
             {
                 loads.Add(toAdd);
             }
@@ -47,7 +50,22 @@ namespace Space_Game
             loads.Remove(toRemove);
         }
 
-        
+        public double Distance(Planet newPlanet)
+        {
+            //Pulls distance using coordinates of the current planet and new planet
 
+            double x1 = currentPlanet.xcoord;
+            double y1 = currentPlanet.ycoord;
+            double x2 = newPlanet.xcoord;
+            double y2 = newPlanet.ycoord;
+
+            double findx = Math.Pow(x2 - x1, 2);
+            double findy = Math.Pow(y2 - y1, 2);
+
+            double distance = Math.Sqrt(findx + findy);
+
+            return distance;
+
+        }
     }
 }

@@ -1,33 +1,49 @@
 using System;
+using System.Collections.Generic;
 
 namespace Space_Game
 {   // This class is for the shop on each planet and the trading system
-    public class Shop
-    {
-        public decimal totalMoney;
-        public decimal itemCost;
-        // Sets the name of the trader 
-        public string Name 
-        { 
-            get; 
-            set;
-        }
 
-        // Sets the Items you can buy
-        public List<GameItem> Inventory 
-        { 
-            get; 
+    public class StoreItems : List<StoreItems>
+    {
+        public string itemName
+        {
+            get;
             set;
         }
         
-        // Sets the name of the Merchant and assigns the items they'll sell
-        public Merchant(string name)
+        public decimal itemCost
         {
-            Name = name;
-            Inventory = new List<GameItem>();
+            get;
+            set;
+        }
+    }
+
+    public class Shop
+    {
+        public decimal totalMoney; // Can we pull this from Character class?
+
+        // Sets the name of the Merchant 
+        public string Name
+        {
+            get;
+            set;
         }
 
-        public void BuyItem(GameItem item)
+        // Sets the store inventory
+        public class StoreInventory
+        {
+            List<StoreItems> storeinventory = new List<StoreItems>();
+        }
+
+        // Sets the name of the Merchant and assigns the items they'll sell
+        public Shop(string name)
+        {
+            Name = name;
+            Inventory = new List<StoreItems>();
+        }
+
+        public void BuyItem(StoreItems item)
         {
 
             totalMoney = totalMoney - itemCost;
@@ -35,21 +51,22 @@ namespace Space_Game
             Console.WriteLine("You bought {description} for {itemCost}.");
         }
 
-        public void SellItem(GameItem item)
+        public void SellItem(StoreItems item)
         {
             totalMoney = totalMoney + itemCost;
             Inventory.Remove(item);
-            Console.WriteLine("You sold {description} for {itemCost}")
+            Console.WriteLine("You sold {description} for {itemCost}");
 
         }
     }
-    public class List 
+    public class List
+    { }
 
     public class PlanetShop
     {
         List<Shop> shopkeepers = new List<Shop>();
 
-        PlantShop()
+        public PlanetShop()
         {
             Shop john = new Shop("John");
             john.AddItemToInventory();
