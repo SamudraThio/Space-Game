@@ -20,7 +20,7 @@ namespace SpaceGame
         }
         //--------------------------------------------------------------------
 
-
+        //What is this?
         public Planet(string planetName, double xcoord, double ycoord, List<string> resources)
         {
             this.planetName = planetName;

@@ -74,42 +74,45 @@ namespace SpaceGame
         {
             Console.WriteLine("How much fuel would you like to load? \n (Enter a number 1-9)");
 
-            
-            
-                string warpInput = Console.ReadLine();
-                int warpLevel = int.Parse(warpInput);
+            string warpInput = Console.ReadLine();
+            int warpLevel = int.Parse(warpInput);
 
             //why wont TryParse work?
-            
+
 
 
             if (warpLevel > 0 && warpLevel < 10)
             {
-                double firstWarpValue = Math.Pow(warpLevel, 10 / 3);
-                double secondWarpValue = Math.Pow(10 - warpLevel, -11 / 3);
+                double firstWarpValue = Math.Pow(warpLevel, 10.0 / 3.0);
+                double secondWarpValue = Math.Pow(10 - warpLevel, -11.0 / 3.0);
 
                 double warpSpeed = firstWarpValue + secondWarpValue;
 
-               // AdjustFuel.Subtract(warpLevel);
 
-                SubtractFuel();
+
+                SubtractFuel(warpLevel);
 
             }
 
             else
             {
                 Console.WriteLine("Captain, we can only use between 1 and 9 units of fuel, or we'll never make it!");
-                Ship.Travel();
+                Travel(newPlanet);
             }
 
+            return ShiftPlanet(newPlanet);
+
+        }
+
+        private Planet ShiftPlanet(Planet newPlanet)
+        {
             currentPlanet = newPlanet;
             return currentPlanet;
-
         }
 
         public int SubtractFuel(int warpLevel)
         {
-            this.fuel -= Ship.warpLevel;
+            this.fuel -= warpLevel;
             return fuel;
         }
 
