@@ -11,9 +11,6 @@ namespace SpaceGame
             Console.Clear();
             Graphics.ShoppingMainMenu();
             Console.WriteLine("Make a selection:");
-            Console.WriteLine("1. Buy items.");
-            Console.WriteLine("2. Sell Items");
-            Console.WriteLine("3. Exit");
             Console.WriteLine();
             Console.ReadLine();
 
@@ -68,7 +65,46 @@ namespace SpaceGame
 
             return earthStore;
         }
+        public static List<Item> AlphaProximaStore()
+        {
+            Item water = new Item("Water", 10.00, 10.00);
+            Item fuel = new Item("Fuel", 10.00, 10.00);
+            Item oxygen = new Item("Oxygen", 10.00, 10.00);
 
+            List<Item> alphaProximaStore = new List<Item>() { water, fuel, oxygen };
+
+            return alphaProximaStore;
+        }
+        public static List<Item> ExandriaStore()
+        {
+            Item water = new Item("Water", 10.00, 10.00);
+            Item fuel = new Item("Fuel", 10.00, 10.00);
+            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+
+            List<Item> exandriaStore = new List<Item>() { water, fuel, oxygen };
+
+            return exandriaStore;
+        }
+        public static List<Item> MidgardStore()
+        {
+            Item water = new Item("Water", 10.00, 10.00);
+            Item fuel = new Item("Fuel", 10.00, 10.00);
+            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+
+            List<Item> midgardStore = new List<Item>() { water, fuel, oxygen };
+
+            return midgardStore;
+        }
+        public static List<Item> MiddleEarthStore()
+        {
+            Item water = new Item("Water", 10.00, 10.00);
+            Item fuel = new Item("Fuel", 10.00, 10.00);
+            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+
+            List<Item> middleEarthStore = new List<Item>() { water, fuel, oxygen };
+
+            return middleEarthStore;
+        }
     }
 }
 

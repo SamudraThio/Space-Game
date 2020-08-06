@@ -8,7 +8,7 @@ namespace SpaceGame
         string planetName;
         public double xcoord;
         public double ycoord;
-        public List<string> resources;
+        public List<Item> shop;
 
         //Stand-in code for the TravelMenu-----------------------------------
         public static void Travel()
@@ -21,12 +21,12 @@ namespace SpaceGame
         //--------------------------------------------------------------------
 
         //What is this?
-        public Planet(string planetName, double xcoord, double ycoord, List<string> resources)
+        public Planet(string planetName, double xcoord, double ycoord, List<Item> shop)
         {
             this.planetName = planetName;
             this.xcoord = xcoord;
             this.ycoord = ycoord;
-            this.resources = resources;
+            this.shop = shop;
         }
 
         public static Planet Earth()
@@ -34,12 +34,9 @@ namespace SpaceGame
             var planetName = "Earth";
             var xcoord = 0.0;
             var ycoord = 0.0;
+            var shop = Item.EarthStore();
 
-            var resourceName1 = "water";
-            var resourceName2 = "oxygen";
-            var resourceName3 = "fuel";
-
-            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
+            return new Planet(planetName, xcoord, ycoord, shop);
         }
 
         public static Planet AlphaProxima()
@@ -47,12 +44,9 @@ namespace SpaceGame
             var planetName = "Alpha Proxima";
             var xcoord = 3.0;
             var ycoord = 0.0;
+            var shop = Item.AlphaProximaStore();
 
-            var resourceName1 = "water";
-            var resourceName2 = "oxygen";
-            var resourceName3 = "fuel";
-
-            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
+            return new Planet(planetName, xcoord, ycoord, shop);
         }
 
         public static Planet Exandria()
@@ -60,12 +54,9 @@ namespace SpaceGame
             var planetName = "Exandria";
             var xcoord = -3.0;
             var ycoord = 0.0;
+            var shop = Item.ExandriaStore();
 
-            var resourceName1 = "water";
-            var resourceName2 = "oxygen";
-            var resourceName3 = "fuel";
-
-            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
+            return new Planet(planetName, xcoord, ycoord, shop);
         }
 
         public static Planet Midgard()
@@ -73,12 +64,9 @@ namespace SpaceGame
             var planetName = "Midgard";
             var xcoord = 0.0;
             var ycoord = 3.0;
+            var shop = Item.MidgardStore();
 
-            var resourceName1 = "water";
-            var resourceName2 = "oxygen";
-            var resourceName3 = "fuel";
-
-            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
+            return new Planet(planetName, xcoord, ycoord, shop);
         }
 
         public static Planet MiddleEarth()
@@ -86,12 +74,9 @@ namespace SpaceGame
             var planetName = "MiddleEarth";
             var xcoord = 0.0;
             var ycoord = -3.0;
+            var shop = Item.MiddleEarthStore();
 
-            var resourceName1 = "water";
-            var resourceName2 = "oxygen";
-            var resourceName3 = "fuel";
-
-            return new Planet(planetName, xcoord, ycoord, new List<string>() { resourceName1, resourceName2, resourceName3 });
+            return new Planet(planetName, xcoord, ycoord, shop);
         }
 
        
