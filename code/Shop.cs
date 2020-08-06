@@ -58,16 +58,15 @@ namespace SpaceGame
             this.sellPrice = sellPrice;
         }
 
-        public Item EarthShop()
+        public static List<Item> EarthStore()
         {
             Item water = new Item("Water", 10.00, 10.00);
             Item fuel = new Item("Fuel", 10.00, 10.00);
             Item oxygen = new Item("Oxygen", 10.00, 10.00);
 
-            List<Item> item = new List<Item>() { water, fuel, oxygen };
+            List<Item> earthStore = new List<Item>() { water, fuel, oxygen };
 
-            Console.WriteLine("What would you like to buy?);
-            return ;
+            return earthStore;
         }
 
     }
