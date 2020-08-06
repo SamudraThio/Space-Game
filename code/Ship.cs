@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 
 namespace SpaceGame
 {
@@ -72,7 +73,15 @@ namespace SpaceGame
         public Planet Travel(Planet newPlanet)
         {
             Console.WriteLine("How much fuel would you like to load? \n (Enter a number 1-9)");
-            int warpLevel = int.TryParse(Console.ReadLine());
+
+            
+            
+                string warpInput = Console.ReadLine();
+                int warpLevel = int.Parse(warpInput);
+
+            //why wont TryParse work?
+            
+
 
             if (warpLevel > 0 && warpLevel < 10)
             {
@@ -81,8 +90,10 @@ namespace SpaceGame
 
                 double warpSpeed = firstWarpValue + secondWarpValue;
 
-                fuel -= warpLevel;
-                return fuel;
+               // AdjustFuel.Subtract(warpLevel);
+
+                SubtractFuel();
+
             }
 
             else
@@ -95,5 +106,21 @@ namespace SpaceGame
             return currentPlanet;
 
         }
+
+        public int SubtractFuel(int warpLevel)
+        {
+            this.fuel -= Ship.warpLevel;
+            return fuel;
+        }
+
+        public int AdjustFuel(int fuel)
+        {
+            this.fuel += fuel;
+            return fuel;
+        }
+        
     }
+
+   // double radius;
+    //if (!double.TryParse(Console.ReadLine(), out radius))
 }

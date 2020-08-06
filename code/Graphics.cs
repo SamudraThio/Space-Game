@@ -133,7 +133,7 @@ namespace SpaceGame
 **     | Captain Kirk |           | USS Enterprise |        | Cargo |                        **
 **___________________________________________________________________________________________**
 **                                                                                           **
-**       Age:    18                 Fuel: 10/10              Water:  3                       **
+**       Age:    {Character.age}                 Fuel: 10/10              Water:  3                       **
 **       Money:  $1,000,000         Load: 10/10              Gold:   2                       **
 **       Planet: Earth                                       Oxygen: 5                       **
 **                                                                                           **
