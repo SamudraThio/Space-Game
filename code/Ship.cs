@@ -71,11 +71,25 @@ namespace SpaceGame
 
         public Planet Travel(Planet newPlanet)
         {
-            //TODO: TotalFuel =- FuelBurned
-            //Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W^(10/3)  + (10 ? W)^(-11/3).
+            Console.WriteLine("How much fuel would you like to load? \n (Enter a number 1-9)");
+            int warpLevel = int.TryParse(Console.ReadLine());
 
-            //int warpLevel = 0;
+            if (warpLevel > 0 && warpLevel < 10)
+            {
+                double firstWarpValue = Math.Pow(warpLevel, 10 / 3);
+                double secondWarpValue = Math.Pow(10 - warpLevel, -11 / 3);
 
+                double warpSpeed = firstWarpValue + secondWarpValue;
+
+                fuel -= warpLevel;
+                return fuel;
+            }
+
+            else
+            {
+                Console.WriteLine("Captain, we can only use between 1 and 9 units of fuel, or we'll never make it!");
+                Ship.Travel();
+            }
 
             currentPlanet = newPlanet;
             return currentPlanet;

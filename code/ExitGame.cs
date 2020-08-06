@@ -9,7 +9,6 @@ namespace SpaceGame
         {
             Console.WriteLine("This is where we exit the game");
         }
-        
     }
 }
 

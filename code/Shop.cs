@@ -3,17 +3,24 @@ using System.Collections.Generic;
 
 namespace SpaceGame
 {
+    enum Resources {  Water, Oxygen, Fuel }
+
     public class Store
     {
-        //Stand-in code for the StoreMenu-----------------------------------
+        //Stand-in code for the StoreMenu--------------------------------
         public static void Shop()
         {
             Console.Clear();
             Graphics.ShoppingMainMenu();
-            Console.Write("Make a selection:");
-            Console.ReadLine();
+            Console.WriteLine("Make a selection:");
+            Console.WriteLine("1. Buy items.");
+            Console.WriteLine("2. Sell Items");
+            Console.WriteLine("3. Exit");
+            Console.WriteLine();
+            int choice = int.TryParse(Console.ReadLine());
+            switch
         }
-        //-------------------------------------------------------------------
+        //---------------------------------------------------------------
 
         //Stand-in code for the BuyMenu-----------------------------------
         public static void Buy()
@@ -25,9 +32,9 @@ namespace SpaceGame
         }
         //-------------------------------------------------------------------
 
-        // Items are marked with the name and price
-        public string itemName;
-        public decimal itemPrice;
+
+
+
 
         // Stand in code for ShoppingBuyMenu
         public static void BuyItem()
@@ -41,6 +48,14 @@ namespace SpaceGame
         }
 
 
+        // Items are marked with the name and price
+        public class Items(string, decimal)
+        {
+            public string itemName;
+            public decimal itemPrice;
+        }
+
+
         //public StoreInventory(
         //        string itemName, decimal itemPrice)
         //    {
@@ -48,17 +63,13 @@ namespace SpaceGame
         //        this.itemPrice = itemPrice;
         //    }
 
-        public string ItemName
-        {
-            get { return itemName;  }
-            set { itemName = value;  }
-        }
 
         public decimal ItemPrice
         {
             get { return itemPrice; }
             set { itemPrice = value; }
         }
+
     }
 }
 
