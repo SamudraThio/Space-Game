@@ -7,7 +7,7 @@ namespace SpaceGame
 
     public class Ship
     {
-        public int fuel; // Will track fuel and fuel capacity
+        public int fuel = 10; // Will track fuel and fuel capacity
         public int cargoCapacity; // Will track cargo weight capacity 
         public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
         public double distance; //Between currentPlanet and newPlanet

@@ -5,20 +5,10 @@ namespace SpaceGame
 {
     public class Planet
     {
-        string planetName;
+        public string planetName;
         public double xcoord;
         public double ycoord;
         public List<Item> shop;
-
-        //Stand-in code for the TravelMenu-----------------------------------
-        public static void Travel()
-        {
-            Console.Clear();
-            Graphics.TravelMenu();
-            Console.WriteLine("Travel To method gets called with selection.");
-            Console.ReadLine();
-        }
-        //--------------------------------------------------------------------
 
         //What is this?
         public Planet(string planetName, double xcoord, double ycoord, List<Item> shop)
@@ -28,6 +18,9 @@ namespace SpaceGame
             this.ycoord = ycoord;
             this.shop = shop;
         }
+
+        //public Planet Earth = new Planet("Earth", 0.0, 0.0, );
+
 
         public static Planet Earth()
         {

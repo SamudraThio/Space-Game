@@ -5,28 +5,28 @@ namespace SpaceGame
 {
     public class Store
     {
-        //Stand-in code for the StoreMenu--------------------------------
-        public static void Shop()
-        {
-            Console.Clear();
-            Graphics.ShoppingMainMenu();
-            Console.WriteLine("Make a selection:");
-            Console.WriteLine();
-            Console.ReadLine();
+        ////Stand-in code for the StoreMenu--------------------------------
+        //public static void Shop()
+        //{
+        //    Console.Clear();
+        //    Graphics.ShoppingMainMenu();
+        //    Console.WriteLine("Make a selection:");
+        //    Console.WriteLine();
+        //    Console.ReadLine();
 
-        }
-        //---------------------------------------------------------------
+        //}
+        ////---------------------------------------------------------------
 
-        //Stand-in code for the BuyMenu-----------------------------------
-        public static void Buy()
-        {
-            Console.Clear();
-            Graphics.ShoppingBuyMenu();
-            Console.Write("Make a selection:");
-            Console.ReadLine();
+        ////Stand-in code for the BuyMenu-----------------------------------
+        //public static void Buy()
+        //{
+        //    Console.Clear();
+        //    Graphics.ShoppingBuyMenu();
+        //    Console.Write("Make a selection:");
+        //    Console.ReadLine();
             
-        }
-        //-------------------------------------------------------------------
+        //}
+        ////-------------------------------------------------------------------
 
 
 

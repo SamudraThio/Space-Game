@@ -98,10 +98,9 @@ namespace SpaceGame
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
             Console.Clear();
-            //TODO Program.MainMenu(); rename this to whatever our entry point will be, startgame?
         }
 
-        public static void MainMenu()
+        public static void MainMenu(Character character, Ship ship)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -118,10 +117,10 @@ namespace SpaceGame
 ***********************************************************************************************");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            HeadsUpDisplay();
+            HeadsUpDisplay(character, ship);
         }
 
-        public static void TravelMenu()
+        public static void TravelMenu(Character character, Ship ship)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -142,7 +141,7 @@ namespace SpaceGame
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            HeadsUpDisplay();
+            HeadsUpDisplay(character, ship);
         }
 
         public static void ShoppingMainMenu()
@@ -164,7 +163,7 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public static void ShoppingBuyMenu()
+        public static void ShoppingBuyMenu(Character character, Ship ship)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -185,17 +184,13 @@ namespace SpaceGame
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            HeadsUpDisplay();
+            HeadsUpDisplay(character, ship);
         }
 
         //TODO implement shopping buy submenu where user can enter number of units to purchase.
 
-        public static void HeadsUpDisplay()
-
-
+        public static void HeadsUpDisplay(Character C, Ship S)
         {
-            Character C = new Character();
-            Ship S = new Ship();
 
 
             Console.WriteLine(@$"
@@ -204,9 +199,9 @@ namespace SpaceGame
 **     | Captain Kirk |           | USS Enterprise |        | Cargo |                        **
 **___________________________________________________________________________________________**
 **                                                                                           **
-**       Age:    {C.age}                Fuel: {C.fuel}/10              Water:  3             **
+**       Age:    {C.age}                Fuel: {S.fuel}/10              Water:  3             **
 **       Money:  {C.totalMoney}         Load: 10/10                    Gold:   2             **
-**       Planet: {S.currentPlanet}                                     Oxygen: 5             **
+**       Planet: {S.currentPlanet.planetName}                                     Oxygen: 5             **
 **                                                                                           **
 ***********************************************************************************************");
 
