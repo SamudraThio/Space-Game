@@ -196,12 +196,12 @@ namespace SpaceGame
             Console.WriteLine(@$"
 **___________________________________________________________________________________________**
 **                                                                                           **
-**     | Captain Kirk |           | USS Enterprise |        | Cargo |                        **
+**        | Captain Kirk |                 | USS Enterprise |               | Cargo |        **
 **___________________________________________________________________________________________**
 **                                                                                           **
-**       Age:    {C.age}                Fuel: {S.fuel}/10              Water:  3             **
-**       Money:  {C.totalMoney}         Load: 10/10                    Gold:   2             **
-**       Planet: {S.currentPlanet.planetName}                                     Oxygen: 5             **
+**       Age:    {C.age}                Fuel: {S.fuel}/10              Water:  {C.water}     **
+**       Money:  {C.totalMoney}         Load: {C.totalCapacity}/10     Gold:   {C.gold}      **
+**       Planet: {S.currentPlanet.planetName}                          Oxygen: {C.oxygen}    **
 **                                                                                           **
 ***********************************************************************************************");
 

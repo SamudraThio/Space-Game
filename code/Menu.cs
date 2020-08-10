@@ -8,7 +8,6 @@ namespace SpaceGame
         {
             Console.Clear();
             Graphics.MainMenu(character, ship);
-            //DisplayTaskList();
 
             switch (Console.ReadLine())
             {
@@ -43,13 +42,13 @@ namespace SpaceGame
                     ship.Travel(Planet.AlphaProxima());
                     return true;
                 case "3":
-                    ship.Travel(Planet.Earth());
+                    ship.Travel(Planet.Exandria());
                     return true;
                 case "4":
-                    ship.Travel(Planet.Earth());
+                    ship.Travel(Planet.Midgard());
                     return true;
                 case "5":
-                    ship.Travel(Planet.Earth());
+                    ship.Travel(Planet.MiddleEarth());
                     return true;
                 default:
                     return true;

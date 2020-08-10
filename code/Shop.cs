@@ -24,40 +24,53 @@ namespace SpaceGame
         //    Graphics.ShoppingBuyMenu();
         //    Console.Write("Make a selection:");
         //    Console.ReadLine();
-            
+
         //}
         ////-------------------------------------------------------------------
 
 
+        List<Load> loads = new List<Load>();
 
-        // Stand in code for ShoppingBuyMenu
-        public static void DisplayInventory()
+
+        private int DisplayCurrentCapacity(Character character)
         {
+            //return loads.Select(l => l.weight).Sum();
+            character.totalCapacity = 0;
 
+            foreach (var load in loads)
+            {
+                character.totalCapacity += load.weight;
+            }
+
+            return character.totalCapacity;
+        }
+        // Stand in code for ShoppingBuyMenu
+
+
+        public decimal SelectItem(Planet planet)
+        {
+            
         }
          
-        public static (decimal, int) BuyItem(decimal x, decimal y, int z)
+        public (decimal, int) BuyItem(string x, Character character, Planet planet)
         {
-            decimal money = x;
-            decimal buyPrice = y;
-
-            int capacity = z;
-
             try
             {
-                if (capacity == 10)
+                if (character.totalCapacity == 10)
                 {
                     throw new IndexOutOfRangeException();
                 }
 
-                money = money - buyPrice;
-
-                if (money < 0)
+                if (character.totalMoney < buyPrice)
                 {
-                    money += buyPrice;
                     throw new InputOutofBounds();
                 }
-                capacity++;
+                else
+                {
+                    character.totalMoney = character.totalMoney - buyPrice;
+                    character.totalCapacity++;
+                }
+                
             }
             catch (IndexOutOfRangeException)
             {
@@ -68,7 +81,7 @@ namespace SpaceGame
                 Console.WriteLine("You don't have sufficient funds.");
             }
 
-            return (money, capacity);
+            return (character.totalMoney, character.totalCapacity);
         }
 
 
@@ -157,6 +170,16 @@ namespace SpaceGame
 
         }
     }
+
+    class ShipOverLoad : Exception
+    {
+        public ShipOverLoad()
+        {
+
+        }
+    }
+
+
 }
 
 

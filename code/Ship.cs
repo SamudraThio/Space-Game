@@ -8,43 +8,32 @@ namespace SpaceGame
     public class Ship
     {
         public int fuel = 10; // Will track fuel and fuel capacity
-        public int cargoCapacity; // Will track cargo weight capacity 
+        public Character Character;
         public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
         public double distance; //Between currentPlanet and newPlanet
 
-        //TODO Warp Speed + Travel Costs (W:F)
-
-        List<Load> loads = new List<Load>();
-
-        private int GetCurrentLoad()
-        {
-            //return loads.Select(l => l.weight).Sum();
-            int totalWeight = 0;
-
-            foreach (var load in loads)
-            {
-                totalWeight += load.weight;
-            }
-
-            return totalWeight;
-        }
-
-        public void AddLoad(Load toAdd)
+        public void AddLoad(Load toAdd) 
         {
             // If the load does not exceed the capacity of the ship, add it
             var currentLoad = GetCurrentLoad();
             var weightWithNewLoad = currentLoad + toAdd.weight;
-
-            if (currentLoad + toAdd.weight <= cargoCapacity)
+            
+            try
             {
-                loads.Add(toAdd);
+                if (currentLoad + toAdd.weight <= 10)
+                {
+                    Store.BuyItem(); //pulls function from store does the math for money - item price
+                    loads.Add(toAdd); // if we buy gold, gold weight ++;
+                }
+
+                else
+                {
+                    throw new ShipOverLoad();
+                }
             }
-
-            // If the load does exceed the capacity of the truck, throw a "ShipOverLoad" exception
-            else
+            catch
             {
-                //This probably needs to be console.writeline
-                //throw new ShipOverLoadException($"Weight of {toAdd.description} exceeds ship capacity by {weightWithNewLoad - capacity}");
+                Console.WriteLine($"You are at the max capacity.");
             }
         }
 
@@ -114,7 +103,10 @@ namespace SpaceGame
 
         public double TimePassed(double distance, double warpSpeed)
         {
-            double time = distance / warpSpeed;
+            //Determine how to pass age into TimePassed
+            
+            double time = Math.Round( distance / warpSpeed, 2);
+            Character.age += time;
 
             return time;
         }
@@ -139,5 +131,4 @@ namespace SpaceGame
         
     }
 
-   
 }
