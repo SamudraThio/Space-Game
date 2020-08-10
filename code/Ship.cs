@@ -10,6 +10,7 @@ namespace SpaceGame
         public int fuel; // Will track fuel and fuel capacity
         public int cargoCapacity; // Will track cargo weight capacity 
         public Planet currentPlanet; //Will Track current location of the ship
+        public double distance;
 
         //TODO Warp Speed + Travel Costs (W:F)
 
@@ -72,17 +73,21 @@ namespace SpaceGame
 
         public Planet Travel(Planet newPlanet)
         {
+            //Takes input of newPlanet, asks for user input for fuel level, converts to warpLevel, warpLevel feeds into warpSpeed,
+            //distance and warpSpeed give us out time metric in light years
+
             Console.WriteLine("How much fuel would you like to load? \n (Enter a number 1-9)");
 
             string warpInput = Console.ReadLine();
             int warpLevel = int.Parse(warpInput);
 
-            //why wont TryParse work?
+            //TODO: Try and catch block? why wont TryParse work?
 
 
 
             if (warpLevel > 0 && warpLevel < 10)
             {
+
                 double firstWarpValue = Math.Pow(warpLevel, 10.0 / 3.0);
                 double secondWarpValue = Math.Pow(10 - warpLevel, -11.0 / 3.0);
 
@@ -91,7 +96,8 @@ namespace SpaceGame
 
 
                 SubtractFuel(warpLevel);
-
+                
+                TimePassed(distance, warpSpeed);
             }
 
             else
@@ -102,6 +108,15 @@ namespace SpaceGame
 
             return ShiftPlanet(newPlanet);
 
+        }
+
+       
+
+        public double TimePassed(double distance, double warpSpeed)
+        {
+            double time = distance / warpSpeed;
+
+            return time;
         }
 
         private Planet ShiftPlanet(Planet newPlanet)
@@ -124,6 +139,5 @@ namespace SpaceGame
         
     }
 
-   // double radius;
-    //if (!double.TryParse(Console.ReadLine(), out radius))
+   
 }
