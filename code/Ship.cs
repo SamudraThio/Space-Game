@@ -9,8 +9,8 @@ namespace SpaceGame
     {
         public int fuel; // Will track fuel and fuel capacity
         public int cargoCapacity; // Will track cargo weight capacity 
-        public Planet currentPlanet; //Will Track current location of the ship
-        public double distance;
+        public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
+        public double distance; //Between currentPlanet and newPlanet
 
         //TODO Warp Speed + Travel Costs (W:F)
 
