@@ -48,7 +48,7 @@ namespace SpaceGame
                 else
                 {
                     character.totalMoney = character.totalMoney - buyPrice;
-                    character.totalCapacity++;
+                    character.totalWeight++;
                 }
                 */
                 
