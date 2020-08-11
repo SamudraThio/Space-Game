@@ -66,7 +66,9 @@ namespace SpaceGame
             var ycoord = -3.0;
             var shop = Item.MiddleEarthStore();
 
+            
             return new Planet(planetName, xcoord, ycoord, shop);
         }
+
     }
 }

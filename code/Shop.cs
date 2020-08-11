@@ -6,6 +6,7 @@ namespace SpaceGame
     //TODO clean up red squigley's in Store
     public class Store
     {
+        public List<Item> inventory = new List<Item>();
         List<Load> loads = new List<Load>();
         
 
@@ -29,19 +30,20 @@ namespace SpaceGame
 
 
          
-        public (int, int) BuyItem(string x, Character character, Planet currentPlanet)
+        public (int, int) BuyItem(Character character, Planet currentPlanet, int i)
         {
             try
             {
                 var currentLoad = GetCurrentCapacity(character);
+                
 
                 if (character.totalWeight == Character.totalCapacity)
                 {
                     Console.WriteLine("The ship is at max capacity.");
                     throw new IndexOutOfRangeException();
                 }
-                /*
-                if (character.totalMoney < buyPrice)
+
+                if (character.totalMoney < currentPlanet.shop[0])
                 {
                     throw new InputOutofBounds();
                 }
@@ -50,7 +52,7 @@ namespace SpaceGame
                     character.totalMoney = character.totalMoney - buyPrice;
                     character.totalWeight++;
                 }
-                */
+                
                 
             }
             catch (IndexOutOfRangeException)
@@ -66,25 +68,22 @@ namespace SpaceGame
         }
 
 
-        public static (int, int) SellItem(int x, int y, int z)
+        public void SellItem(Item item, Character character)
         {
-            int money = x;
-            int sellPrice = y;
 
-            int capacity = z;
+            character.totalMoney += Item.SellingCostOf(item);
 
-            money += sellPrice;
-            capacity--;
+            inventory.Remove(item);
+            character.totalWeight--;
 
-            return (money, capacity);
         }
     }
 
     public class Item
     {
-        string itemName;
-        double buyPrice;
-        double sellPrice;
+        public string itemName;
+        public int buyPrice;
+        public int sellPrice;
 
         public Item(string itemName, int buyPrice, int sellPrice)
         {
@@ -148,6 +147,16 @@ namespace SpaceGame
 
             return middleEarthStore;
         }
+        public int PurchaseCostOf(Item item)
+        {
+            return item.buyPrice;
+        }
+        public int SellingCostOf(Item item)
+        {
+            return item.SellPrice;
+        }
+
+
     }
     class InputOutofBounds : Exception
     {

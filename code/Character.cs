@@ -16,6 +16,7 @@ namespace SpaceGame
         public int gold = 0;
         public int totalWeight = 0;
         public const int totalCapacity = 10;
+        public const int fuelCapacity = 10;
     }
 }
 

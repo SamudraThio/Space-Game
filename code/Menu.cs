@@ -5,7 +5,7 @@ namespace SpaceGame
     class Menu
     {
         //TODO get shopping menu's functional
-        public static bool MainMenu(Character character, Ship ship)
+        public static bool MainMenu(Character character, Ship ship, Planet planet)
         {
             Console.Clear();
             Graphics.MainMenu(character, ship);
@@ -16,10 +16,10 @@ namespace SpaceGame
                     TravelMenu(character, ship);
                     return true;
                 case "2":
-                    ShoppingMainMenu(character, ship);
+                    ShoppingMainMenu(character, ship, planet);
                     return true;
                 case "3":
-                    ShoppingMainMenu(character, ship);
+                    ShoppingMainMenu(character, ship, planet);
                     return true;
                 case "4":
                     ExitGame.exitGame();
@@ -56,7 +56,7 @@ namespace SpaceGame
             }
         }
 
-        public static bool ShoppingMainMenu(Character character, Ship ship)
+        public static bool ShoppingMainMenu(Character character, Ship ship, Planet planet)
         {
             Console.Clear();
             Graphics.ShoppingMainMenu(character, ship);
@@ -64,10 +64,10 @@ namespace SpaceGame
             switch (Console.ReadLine())
             {
                 case "1":
-                    ShoppingBuyMenu(character, ship);
+                    ShoppingBuyMenu(character, ship, planet);
                     return true;
                 case "2":
-                    ShoppingSellMenu(character, ship);
+                    ShoppingSellMenu(character, ship, planet);
                     return true;
                 case "3":
                     Graphics.ShoppingMainMenu(character, ship);
@@ -77,7 +77,7 @@ namespace SpaceGame
             }
         }
 
-        public static bool ShoppingBuyMenu(Character character, Ship ship)
+        public static bool ShoppingBuyMenu(Character character, Ship ship, Planet planet)
         {
             Console.Clear();
             Graphics.ShoppingBuyMenu(character, ship);
@@ -85,29 +85,29 @@ namespace SpaceGame
             switch (Console.ReadLine())
             {
                 case "1":
-                    Store.BuyItem();
+                    Store.BuyItem(character, planet);
                     return true;
                 case "2":
-                    Store.BuyItem();
+                    Store.BuyItem(character, planet);
                     return true;
                 case "3":
-                    Store.BuyItem();
+                    Store.BuyItem(character, planet);
                     return true;
                 case "4":
-                    Store.BuyItem();
+                    Store.BuyItem(character, planet);
                     return true;
                 case "5":
                     Graphics.ShoppingMainMenu(character, ship);
                     return true;
                 case "6":
-                    MainMenu(character, ship);
+                    MainMenu(character, ship, planet);
                     return true;
                 default:
                     return true;
             }
         }
 
-        public static bool ShoppingSellMenu(Character character, Ship ship)
+        public static bool ShoppingSellMenu(Character character, Ship ship, Planet planet)
         {
             Console.Clear();
             Graphics.ShoppingBuyMenu(character, ship);
@@ -115,7 +115,7 @@ namespace SpaceGame
             switch (Console.ReadLine())
             {
                 case "1":
-                    Store.SellItem();
+                    Store.SellItem(character, planet);
                     return true;
                 case "2":
                     Store.SellItem();
@@ -130,7 +130,7 @@ namespace SpaceGame
                     Graphics.ShoppingMainMenu(character, ship);
                     return true;
                 case "6":
-                    MainMenu(character, ship);
+                    MainMenu(character, ship, planet);
                     return true;
                 default:
                     return true;

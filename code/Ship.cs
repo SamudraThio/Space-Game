@@ -50,7 +50,7 @@ namespace SpaceGame
 
                 double warpSpeed = firstWarpValue + secondWarpValue;
 
-                SubtractFuel(warpLevel);
+                SubtractFuel(warpLevel, newPlanet);
                 
                 TimePassed(distance, warpSpeed);
             }
@@ -80,16 +80,37 @@ namespace SpaceGame
             return currentPlanet;
         }
 
-        public int SubtractFuel(int warpLevel)
+        public int SubtractFuel(int warpLevel, Planet newPlanet)
         {
             this.fuel -= warpLevel;
-            return fuel;
+
+            if (fuel < 0)
+            {
+                Console.WriteLine("We don't have that much fuel, Captain!");
+                fuel += warpLevel;
+                Travel(newPlanet);
+                //TODO: Recall the Travel method OR TravelMenu?
+                
+            }
+
+                return fuel;
+            
+
+            
         }
 
-        public int AdjustFuel(int fuel)
+        public int AddFuel(int fuel)
         {
+            if (fuel < Character.fuelCapacity)
+            {
             this.fuel += fuel;
             return fuel;
+            }
+            else
+            {
+            Console.WriteLine("Sir, our fuel is at maximum capacity!");
+            return fuel;
+            }
         }   
     }
 }

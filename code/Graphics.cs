@@ -141,7 +141,6 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.White;
             HeadsUpDisplay(character, ship);
         }
-
         public static void ShoppingMainMenu(Character character, Ship ship)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
@@ -188,18 +187,18 @@ namespace SpaceGame
         public static void HeadsUpDisplay(Character C, Ship S)
         {
             string border = "**";
-            string age = ($"Age:    {C.age}");
-            string fuel = ($"Fuel: {S.fuel}");
-            string water = ($"Water: {C.water}");
-            string money = ($"Money:  {C.totalMoney}");
-            string load = ($"Load: {C.totalWeight}");
-            string gold = ($"Gold: {C.gold}");
-            string planet = ($"Planet: {S.currentPlanet.planetName}");
-            string oxygen = ($"Oxygen: {C.oxygen}");
+            string age = $"Age:    {C.age}";
+            string fuel = $"Fuel: {S.fuel}";
+            string water = $"Water: {C.water}";
+            string money = $"Money:  {C.totalMoney}";
+            string load = $"Load: {C.totalWeight}";
+            string gold = $"Gold: {C.gold}";
+            string planet = $"Planet: {S.currentPlanet.planetName}";
+            string oxygen = $"Oxygen: {C.oxygen}";
             Console.WriteLine(@$"
 **___________________________________________________________________________________________**
 **                                                                                           **
-**        | {C.name} |                 | USS Enterprise |               | Cargo |         **
+**        | {C.name} |                 | USS Enterprise |               | Cargo |        **
 **___________________________________________________________________________________________**
 **                                                                                           **");
             Console.Write(border);
@@ -219,7 +218,6 @@ namespace SpaceGame
             Console.WriteLine(@$"
 **                                                                                           **
 ***********************************************************************************************");
-
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             Console.Write("Make a menu selection: ");
