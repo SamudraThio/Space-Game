@@ -3,34 +3,10 @@ using System.Collections.Generic;
 
 namespace SpaceGame
 {
+    //TODO clean up red squigley's in Store
     public class Store
     {
-        ////Stand-in code for the StoreMenu--------------------------------
-        //public static void Shop()
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingMainMenu();
-        //    Console.WriteLine("Make a selection:");
-        //    Console.WriteLine();
-        //    Console.ReadLine();
-
-        //}
-        ////---------------------------------------------------------------
-
-        ////Stand-in code for the BuyMenu-----------------------------------
-        //public static void Buy()
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingBuyMenu();
-        //    Console.Write("Make a selection:");
-        //    Console.ReadLine();
-
-        //}
-        ////-------------------------------------------------------------------
-
-
         List<Load> loads = new List<Load>();
-
 
         private int DisplayCurrentCapacity(Character character)
         {
@@ -44,8 +20,6 @@ namespace SpaceGame
 
             return character.totalCapacity;
         }
-        // Stand in code for ShoppingBuyMenu
-
 
         public decimal SelectItem(Planet planet)
         {
@@ -178,8 +152,6 @@ namespace SpaceGame
 
         }
     }
-
-
 }
 
 

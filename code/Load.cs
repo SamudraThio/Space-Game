@@ -5,9 +5,7 @@ namespace SpaceGame
     public class Load
     {
         public string description;
-        
         public int weight;
-
         public decimal purchaseCost;
         public decimal sellingCost;
 

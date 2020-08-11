@@ -4,6 +4,7 @@ namespace SpaceGame
 {
     class Menu
     {
+        //TODO get shopping menu's functional
         public static bool MainMenu(Character character, Ship ship)
         {
             Console.Clear();

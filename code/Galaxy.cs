@@ -19,9 +19,6 @@ namespace SpaceGame
             this.shop = shop;
         }
 
-        //public Planet Earth = new Planet("Earth", 0.0, 0.0, );
-
-
         public static Planet Earth()
         {
             var planetName = "Earth";
@@ -71,9 +68,5 @@ namespace SpaceGame
 
             return new Planet(planetName, xcoord, ycoord, shop);
         }
-
-       
-
-
     }
 }

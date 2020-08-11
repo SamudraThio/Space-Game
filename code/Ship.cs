@@ -4,6 +4,7 @@ using System.Net.Http;
 
 namespace SpaceGame
 {
+    //TODO resolve red squigley's in Ship
 
     public class Ship
     {
@@ -57,7 +58,6 @@ namespace SpaceGame
             double distance = Math.Sqrt(findx + findy);
 
             return distance;
-
         }
 
         public Planet Travel(Planet newPlanet)
@@ -72,8 +72,6 @@ namespace SpaceGame
 
             //TODO: Try and catch block? why wont TryParse work?
 
-
-
             if (warpLevel > 0 && warpLevel < 10)
             {
 
@@ -81,8 +79,6 @@ namespace SpaceGame
                 double secondWarpValue = Math.Pow(10 - warpLevel, -11.0 / 3.0);
 
                 double warpSpeed = firstWarpValue + secondWarpValue;
-
-
 
                 SubtractFuel(warpLevel);
                 
@@ -96,10 +92,7 @@ namespace SpaceGame
             }
 
             return ShiftPlanet(newPlanet);
-
         }
-
-       
 
         public double TimePassed(double distance, double warpSpeed)
         {
@@ -127,8 +120,6 @@ namespace SpaceGame
         {
             this.fuel += fuel;
             return fuel;
-        }
-        
+        }   
     }
-
 }

@@ -6,6 +6,7 @@ namespace SpaceGame
 {
     public class Graphics
     {
+        //TODO add padright to hud
         public static void SplashScreen()
         {
             //Font courtesy of ascii.co.uk
@@ -80,9 +81,6 @@ namespace SpaceGame
 ████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████████████████████████████████████
 
 ");
-
-
-
             Console.ForegroundColor = ConsoleColor.White;
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine(@"
@@ -187,12 +185,8 @@ namespace SpaceGame
             HeadsUpDisplay(character, ship);
         }
 
-        //TODO implement shopping buy submenu where user can enter number of units to purchase.
-
         public static void HeadsUpDisplay(Character C, Ship S)
         {
-
-
             Console.WriteLine(@$"
 **___________________________________________________________________________________________**
 **                                                                                           **
