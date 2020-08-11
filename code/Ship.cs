@@ -13,36 +13,6 @@ namespace SpaceGame
         public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
         public double distance; //Between currentPlanet and newPlanet
 
-        public void AddLoad(Load toAdd) 
-        {
-            // If the load does not exceed the capacity of the ship, add it
-            var currentLoad = GetCurrentLoad();
-            var weightWithNewLoad = currentLoad + toAdd.weight;
-            
-            try
-            {
-                if (currentLoad + toAdd.weight <= 10)
-                {
-                    Store.BuyItem(); //pulls function from store does the math for money - item price
-                    loads.Add(toAdd); // if we buy gold, gold weight ++;
-                }
-
-                else
-                {
-                    throw new ShipOverLoad();
-                }
-            }
-            catch
-            {
-                Console.WriteLine($"You are at the max capacity.");
-            }
-        }
-
-        public void RemoveLoad(Load toRemove)
-        {
-            loads.Remove(toRemove);
-        }
-
         public double Distance(Planet newPlanet)
         {
             //Pulls distance using coordinates of the current planet and new planet

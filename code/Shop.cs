@@ -7,34 +7,40 @@ namespace SpaceGame
     public class Store
     {
         List<Load> loads = new List<Load>();
+        
 
-        private int DisplayCurrentCapacity(Character character)
+        public int GetCurrentCapacity(Character character)
         {
             //return loads.Select(l => l.weight).Sum();
-            character.totalCapacity = 0;
+            character.totalWeight = 0;
 
             foreach (var load in loads)
             {
-                character.totalCapacity += load.weight;
+                character.totalWeight += load.weight;
+
+                if (character.totalWeight > Character.totalCapacity)
+                {
+                    Console.WriteLine("The ship is overloaded, Captain! We have to sell off some goods before we can take off!");
+                }
             }
 
-            return character.totalCapacity;
+            return character.totalWeight;
         }
 
-        public decimal SelectItem(Planet planet)
-        {
-            
-        }
+
          
-        public (decimal, int) BuyItem(string x, Character character, Planet planet)
+        public (int, int) BuyItem(string x, Character character, Planet currentPlanet)
         {
             try
             {
-                if (character.totalCapacity == 10)
+                var currentLoad = GetCurrentCapacity(character);
+
+                if (character.totalWeight == Character.totalCapacity)
                 {
+                    Console.WriteLine("The ship is at max capacity.");
                     throw new IndexOutOfRangeException();
                 }
-
+                /*
                 if (character.totalMoney < buyPrice)
                 {
                     throw new InputOutofBounds();
@@ -44,6 +50,7 @@ namespace SpaceGame
                     character.totalMoney = character.totalMoney - buyPrice;
                     character.totalCapacity++;
                 }
+                */
                 
             }
             catch (IndexOutOfRangeException)
@@ -55,14 +62,14 @@ namespace SpaceGame
                 Console.WriteLine("You don't have sufficient funds.");
             }
 
-            return (character.totalMoney, character.totalCapacity);
+            return (character.totalMoney, character.totalWeight);
         }
 
 
-        public static (decimal, int) SellItem(decimal x, decimal y, int z)
+        public static (int, int) SellItem(int x, int y, int z)
         {
-            decimal money = x;
-            decimal sellPrice = y;
+            int money = x;
+            int sellPrice = y;
 
             int capacity = z;
 
@@ -79,7 +86,7 @@ namespace SpaceGame
         double buyPrice;
         double sellPrice;
 
-        public Item(string itemName, double buyPrice, double sellPrice)
+        public Item(string itemName, int buyPrice, int sellPrice)
         {
             this.itemName = itemName;
             this.buyPrice = buyPrice;
@@ -88,51 +95,56 @@ namespace SpaceGame
 
         public static List<Item> EarthStore()
         {
-            Item water = new Item("Water", 10.00, 10.00);
-            Item fuel = new Item("Fuel", 10.00, 10.00);
-            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+            Item water = new Item("Water", 100, 100);
+            Item oxygen = new Item("Oxygen", 100, 100);
+            Item gold = new Item("Gold", 100, 100);
+            Item fuel = new Item("Fuel", 50, 50);
 
-            List<Item> earthStore = new List<Item>() { water, fuel, oxygen };
+            List<Item> earthStore = new List<Item>() { water, oxygen, gold, fuel };
 
             return earthStore;
         }
         public static List<Item> AlphaProximaStore()
         {
-            Item water = new Item("Water", 10.00, 10.00);
-            Item fuel = new Item("Fuel", 10.00, 10.00);
-            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+            Item water = new Item("Water", 100, 100);
+            Item oxygen = new Item("Oxygen", 100, 100);
+            Item gold = new Item("Gold", 100, 100);
+            Item fuel = new Item("Fuel", 50, 50);
 
-            List<Item> alphaProximaStore = new List<Item>() { water, fuel, oxygen };
+            List<Item> alphaProximaStore = new List<Item>() { water, oxygen, gold, fuel };
 
             return alphaProximaStore;
         }
         public static List<Item> ExandriaStore()
         {
-            Item water = new Item("Water", 10.00, 10.00);
-            Item fuel = new Item("Fuel", 10.00, 10.00);
-            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+            Item water = new Item("Water", 100, 100);
+            Item oxygen = new Item("Oxygen", 100, 100);
+            Item gold = new Item("Gold", 100, 100);
+            Item fuel = new Item("Fuel", 50, 50);
 
-            List<Item> exandriaStore = new List<Item>() { water, fuel, oxygen };
+            List<Item> exandriaStore = new List<Item>() { water, oxygen, gold, fuel };
 
             return exandriaStore;
         }
         public static List<Item> MidgardStore()
         {
-            Item water = new Item("Water", 10.00, 10.00);
-            Item fuel = new Item("Fuel", 10.00, 10.00);
-            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+            Item water = new Item("Water", 100, 100);
+            Item oxygen = new Item("Oxygen", 100, 100);
+            Item gold = new Item("Gold", 100, 100);
+            Item fuel = new Item("Fuel", 50, 50);
 
-            List<Item> midgardStore = new List<Item>() { water, fuel, oxygen };
+            List<Item> midgardStore = new List<Item>() { water, oxygen, gold, fuel };
 
             return midgardStore;
         }
         public static List<Item> MiddleEarthStore()
         {
-            Item water = new Item("Water", 10.00, 10.00);
-            Item fuel = new Item("Fuel", 10.00, 10.00);
-            Item oxygen = new Item("Oxygen", 10.00, 10.00);
+            Item water = new Item("Water", 100, 100);
+            Item oxygen = new Item("Oxygen", 100, 100);
+            Item gold = new Item("Gold", 100, 100);
+            Item fuel = new Item("Fuel", 50, 50);
 
-            List<Item> middleEarthStore = new List<Item>() { water, fuel, oxygen };
+            List<Item> middleEarthStore = new List<Item>() { water, oxygen, gold, fuel };
 
             return middleEarthStore;
         }

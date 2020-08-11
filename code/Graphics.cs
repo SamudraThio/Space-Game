@@ -142,7 +142,7 @@ namespace SpaceGame
             HeadsUpDisplay(character, ship);
         }
 
-        public static void ShoppingMainMenu()
+        public static void ShoppingMainMenu(Character character, Ship ship)
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -187,12 +187,20 @@ namespace SpaceGame
 
         public static void HeadsUpDisplay(Character C, Ship S)
         {
+            string border = "**";
             Console.WriteLine(@$"
 **___________________________________________________________________________________________**
 **                                                                                           **
-**        | Captain Kirk |                 | USS Enterprise |               | Cargo |        **
+**        | {C.name} |                 | USS Enterprise |               | Cargo |        **
 **___________________________________________________________________________________________**
-**                                                                                           **
+**                                                                                           **border.PadLeft(45));
+
+
+
+
+
+
+
 **       Age:    {C.age}                Fuel: {S.fuel}/10              Water:  {C.water}     **
 **       Money:  {C.totalMoney}         Load: {C.totalCapacity}/10     Gold:   {C.gold}      **
 **       Planet: {S.currentPlanet.planetName}                          Oxygen: {C.oxygen}    **

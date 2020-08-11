@@ -9,12 +9,13 @@ namespace SpaceGame
 
         public string name = "Captain Kirk";
 
-        public decimal totalMoney = 100000;
+        public int totalMoney = 100000;
 
         public int water = 0;
         public int oxygen = 0;
         public int gold = 0;
-        public int totalCapacity = 0;
+        public int totalWeight = 0;
+        public const int totalCapacity = 10;
     }
 }
 

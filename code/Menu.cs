@@ -16,10 +16,10 @@ namespace SpaceGame
                     TravelMenu(character, ship);
                     return true;
                 case "2":
-                    //Store.Shop();
+                    ShoppingMainMenu(character, ship);
                     return true;
                 case "3":
-                    //Store.Shop();
+                    ShoppingMainMenu(character, ship);
                     return true;
                 case "4":
                     ExitGame.exitGame();
@@ -56,85 +56,85 @@ namespace SpaceGame
             }
         }
 
-        //public bool ShoppingMainMenu()
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingMainMenu();
+        public static bool ShoppingMainMenu(Character character, Ship ship)
+        {
+            Console.Clear();
+            Graphics.ShoppingMainMenu(character, ship);
 
-        //    switch (Console.ReadLine())
-        //    {
-        //        case "1":
-        //            ShoppingBuyMenu();
-        //            return true;
-        //        case "2":
-        //            ShoppingSellMenu();
-        //            return true;
-        //        case "3":
-        //            Graphics.ShoppingMainMenu();
-        //            return false;
-        //        default:
-        //            return true;
-        //    }
-        //}
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    ShoppingBuyMenu(character, ship);
+                    return true;
+                case "2":
+                    ShoppingSellMenu(character, ship);
+                    return true;
+                case "3":
+                    Graphics.ShoppingMainMenu(character, ship);
+                    return true;
+                default:
+                    return true;
+            }
+        }
 
-        //public bool ShoppingBuyMenu(Character character, Ship ship)
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingBuyMenu(character, ship);
+        public static bool ShoppingBuyMenu(Character character, Ship ship)
+        {
+            Console.Clear();
+            Graphics.ShoppingBuyMenu(character, ship);
 
-        //    switch (Console.ReadLine())
-        //    {
-        //        case "1":
-        //            Store.Buy();
-        //            return true;
-        //        case "2":
-        //            Store.Buy();
-        //            return true;
-        //        case "3":
-        //            Store.Buy();
-        //            return true;
-        //        case "4":
-        //            Store.Buy();
-        //            return true;
-        //        case "5":
-        //            Graphics.ShoppingMainMenu();
-        //            return false;
-        //        case "6":
-        //            //MainMenu();
-        //            return false;
-        //        default:
-        //            return true;
-        //    }
-        //}
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Store.BuyItem();
+                    return true;
+                case "2":
+                    Store.BuyItem();
+                    return true;
+                case "3":
+                    Store.BuyItem();
+                    return true;
+                case "4":
+                    Store.BuyItem();
+                    return true;
+                case "5":
+                    Graphics.ShoppingMainMenu(character, ship);
+                    return true;
+                case "6":
+                    MainMenu(character, ship);
+                    return true;
+                default:
+                    return true;
+            }
+        }
 
-        //public bool ShoppingSellMenu()
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingBuyMenu();
+        public static bool ShoppingSellMenu(Character character, Ship ship)
+        {
+            Console.Clear();
+            Graphics.ShoppingBuyMenu(character, ship);
 
-        //    switch (Console.ReadLine())
-        //    {
-        //        //case "1":
-        //        //    Store.SellItem();
-        //        //    return true;
-        //        //case "2":
-        //        //    Store.SellItem();
-        //        //    return true;
-        //        //case "3":
-        //        //    Store.SellItem();
-        //        //    return true;
-        //        //case "4":
-        //        //    Store.SellItem();
-        //        //    return true;
-        //        //case "5":
-        //        //    Graphics.ShoppingMainMenu();
-        //        //    return false;
-        //        //case "6":
-        //        //    MainMenu();
-        //        //    return false;
-        //        //default:
-        //        //    return true;
-        //    }
-        //}
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Store.SellItem();
+                    return true;
+                case "2":
+                    Store.SellItem();
+                    return true;
+                case "3":
+                    Store.SellItem();
+                    return true;
+                case "4":
+                    Store.SellItem();
+                    return true;
+                case "5":
+                    Graphics.ShoppingMainMenu(character, ship);
+                    return true;
+                case "6":
+                    MainMenu(character, ship);
+                    return true;
+                default:
+                    return true;
+            }
+        }
     }
 }
