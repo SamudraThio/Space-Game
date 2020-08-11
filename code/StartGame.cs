@@ -14,11 +14,12 @@ namespace SpaceGame
 
                 Character character = new Character();
                 Ship ship = new Ship();
+                Planet planet = new Planet();
 
                 bool displayMenu = true;
                 while (displayMenu)
                 {
-                    displayMenu = Menu.MainMenu(character, ship);
+                    displayMenu = Menu.MainMenu(character, ship, planet);
                 }
             }
 

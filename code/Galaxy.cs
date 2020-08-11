@@ -10,6 +10,10 @@ namespace SpaceGame
         public double ycoord;
         public List<Item> shop;
 
+        public Planet()
+        {
+
+        }
         
         public Planet(string planetName, double xcoord, double ycoord, List<Item> shop)
         {

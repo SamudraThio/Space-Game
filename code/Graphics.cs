@@ -189,10 +189,10 @@ namespace SpaceGame
             string border = "**";
             string age = $"Age:    {C.age}";
             string fuel = $"Fuel: {S.fuel}";
-            string water = $"Water: {C.water}";
+            string water = $"Water:  {C.water}";
             string money = $"Money:  {C.totalMoney}";
             string load = $"Load: {C.totalWeight}";
-            string gold = $"Gold: {C.gold}";
+            string gold = $"Gold:   {C.gold}";
             string planet = $"Planet: {S.currentPlanet.planetName}";
             string oxygen = $"Oxygen: {C.oxygen}";
             Console.WriteLine(@$"
@@ -202,20 +202,20 @@ namespace SpaceGame
 **___________________________________________________________________________________________**
 **                                                                                           **");
             Console.Write(border);
-            Console.Write(age.PadLeft(5));
-            Console.Write(fuel.PadLeft(25));
-            Console.Write(water.PadLeft(40));
-            Console.WriteLine(border.PadLeft(60));
+            Console.Write(age.PadRight(5));
+            Console.Write(fuel.PadLeft(40));
+            Console.Write(water.PadLeft(33));
+            Console.WriteLine(border.PadLeft(10));
             Console.Write(border);
             Console.Write(money.PadLeft(5));
-            Console.Write(load.PadLeft(25));
-            Console.Write(gold.PadLeft(40));
-            Console.WriteLine(border.PadLeft(60));
+            Console.Write(load.PadLeft(35));
+            Console.Write(gold.PadLeft(34));
+            Console.WriteLine(border.PadLeft(10));
             Console.Write(border);
             Console.Write(planet.PadLeft(5));
-            Console.Write(oxygen.PadLeft(40));
-            Console.WriteLine(border.PadLeft(60));
-            Console.WriteLine(@$"
+            Console.Write(oxygen.PadLeft(70));
+            Console.Write(border.PadLeft(10));
+            Console.Write(@$"
 **                                                                                           **
 ***********************************************************************************************");
             Console.ForegroundColor = ConsoleColor.Green;
