@@ -10,7 +10,7 @@ namespace SpaceGame
         public double ycoord;
         public List<Item> shop;
 
-        //What is this?
+        
         public Planet(string planetName, double xcoord, double ycoord, List<Item> shop)
         {
             this.planetName = planetName;

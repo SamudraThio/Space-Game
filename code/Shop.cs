@@ -30,7 +30,7 @@ namespace SpaceGame
 
 
          
-        public (int, int) BuyItem(Character character, Planet currentPlanet, int i)
+        public (int, int) BuyItem(Character character, Planet currentPlanet, string itemName)
         {
             try
             {
@@ -43,13 +43,15 @@ namespace SpaceGame
                     throw new IndexOutOfRangeException();
                 }
 
-                if (character.totalMoney < currentPlanet.shop[0])
+                int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
+
+                if (character.totalMoney < price)
                 {
                     throw new InputOutofBounds();
                 }
                 else
                 {
-                    character.totalMoney = character.totalMoney - buyPrice;
+                    character.totalMoney = character.totalMoney - price;
                     character.totalWeight++;
                 }
                 
@@ -68,14 +70,22 @@ namespace SpaceGame
         }
 
 
-        public void SellItem(Item item, Character character)
+        public void SellItem(Character character, Planet currentPlanet, string itemName, Item item)
         {
+            if (character.totalWeight == 0)
+            {
+                Console.WriteLine("You have no items to sell.");
+            }
+            else
+            {
+                int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
 
-            character.totalMoney += Item.SellingCostOf(item);
+                character.totalMoney += price;
 
-            inventory.Remove(item);
-            character.totalWeight--;
+                // inventory.Remove(item);
 
+                character.totalWeight--;
+            }
         }
     }
 
@@ -147,13 +157,26 @@ namespace SpaceGame
 
             return middleEarthStore;
         }
-        public int PurchaseCostOf(Item item)
+        public static int PurchaseCostOf(string itemName, List<Item> shop)
         {
-            return item.buyPrice;
+            int price = 0;
+            foreach (var item in shop)
+            {
+                if (item.itemName.Equals(itemName, StringComparison.OrdinalIgnoreCase))
+                    price = item.buyPrice;
+            }
+            return price;
         }
-        public int SellingCostOf(Item item)
+
+        public static int SellingCostOf(string itemName, List<Item> shop)
         {
-            return item.SellPrice;
+            int price = 0;
+            foreach (var item in shop)
+            {
+                if (item.itemName.Equals(itemName, StringComparison.OrdinalIgnoreCase))
+                    price = item.sellPrice;
+            }
+            return price;
         }
 
 
