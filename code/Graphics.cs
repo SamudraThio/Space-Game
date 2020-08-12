@@ -39,7 +39,15 @@ namespace SpaceGame
             Console.WriteLine(@"
 ***********************************************************************************************
 **                                                                                           **
+**                                                                                           **
 **                                       LOST IN SPACE!                                      **
+**                                                                                           **
+**          The year is 2020, the Earth is in shambles! One young Space Captain has          **
+**          heard of an opportunity to escape this dying planet, and even this whole         **
+**          galaxy! Elon Musk has created a utopia, referred to only as ArkX, which          **
+**          anyone can find refuge in. But only if they can afford a ticket to               **
+**          another galaxy! So, young Captain Kirk sets out to build his fortune, and        **
+**          purchase the last ticket to ArkX left on Earth!                                  **
 **                                                                                           **
 **                            1. Travel to a new planet                                      **
 **                            2. Shop resources                                              **
@@ -58,6 +66,9 @@ namespace SpaceGame
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(@$"
 ***********************************************************************************************
+**                                                                                           **
+**          Different planets offer different prices on goods! Trade goods between planets   **
+**          to build your fortune!                                                           **
 **                                                                                           **
 **                            SELECT A PLANET TO TRAVEL TO                                   **
 **                                                                                           **
@@ -135,20 +146,23 @@ namespace SpaceGame
 **        | {C.name} |                 | USS Enterprise |               | Cargo |        **
 **___________________________________________________________________________________________**
 **                                                                                           **");
-            Console.Write(border);
-            Console.Write(age.PadRight(5));
-            Console.Write(fuel.PadLeft(40));
-            Console.Write(water.PadLeft(33));
-            Console.WriteLine(border.PadLeft(10));
-            Console.Write(border);
-            Console.Write(money.PadLeft(5));
-            Console.Write(load.PadLeft(35));
-            Console.Write(gold.PadLeft(34));
-            Console.WriteLine(border.PadLeft(10));
-            Console.Write(border);
-            Console.Write(planet.PadLeft(5));
-            Console.Write(oxygen.PadLeft(70));
-            Console.Write(border.PadLeft(10));
+            Console.Write("{0, 0}{0, 5}{0, 35}{0, 70}(0, 100}",
+                border [0], age[1], fuel[2], water[3], border[4]);
+
+            //Console.Write(border);
+            //Console.Write(age.PadRight(5));
+            //Console.Write(fuel.PadLeft(40));
+            //Console.Write(water.PadLeft(33));
+            //Console.WriteLine(border.PadLeft(10));
+            //Console.Write(border);
+            //Console.Write(money.PadLeft(5));
+            //Console.Write(load.PadLeft(35));
+            //Console.Write(gold.PadLeft(34));
+            //Console.WriteLine(border.PadLeft(10));
+            //Console.Write(border);
+            //Console.Write(planet.PadLeft(5));
+            //Console.Write(oxygen.PadLeft(70));
+            //Console.Write(border.PadLeft(10));
             Console.Write(@$"
 **                                                                                           **
 ***********************************************************************************************");

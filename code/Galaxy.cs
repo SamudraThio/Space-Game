@@ -36,7 +36,7 @@ namespace SpaceGame
         public static Planet AlphaProxima()
         {
             var planetName = "Alpha Proxima";
-            var xcoord = 3.0;
+            var xcoord = 300.0;
             var ycoord = 0.0;
             var shop = Item.AlphaProximaStore();
 
@@ -46,7 +46,7 @@ namespace SpaceGame
         public static Planet Exandria()
         {
             var planetName = "Exandria";
-            var xcoord = -3.0;
+            var xcoord = -300.0;
             var ycoord = 0.0;
             var shop = Item.ExandriaStore();
 
@@ -57,7 +57,7 @@ namespace SpaceGame
         {
             var planetName = "Midgard";
             var xcoord = 0.0;
-            var ycoord = 3.0;
+            var ycoord = 300.0;
             var shop = Item.MidgardStore();
 
             return new Planet(planetName, xcoord, ycoord, shop);
@@ -67,7 +67,7 @@ namespace SpaceGame
         {
             var planetName = "MiddleEarth";
             var xcoord = 0.0;
-            var ycoord = -3.0;
+            var ycoord = -300.0;
             var shop = Item.MiddleEarthStore();
 
             

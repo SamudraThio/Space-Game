@@ -9,6 +9,7 @@ namespace SpaceGame
         public List<Item> inventorys = new List<Item>();
         List<Load> loads = new List<Load>();
 
+        // Pulls the current planet's store and displays the items, buying price, and selling price.
         public void DisplayStore(Planet currentPlanet)
         {
             var lists = currentPlanet.shop;
@@ -19,36 +20,49 @@ namespace SpaceGame
             }
         }
 
+        // Displays the inventory - used when looking for items to sell.
         public void DisplayInventory()
         {
             if (inventorys.Count == 0)
             {
-                Console.WriteLine("You have nothing to sell");
+                Console.WriteLine("You have nothing to in your inventory.");
             }
             else
             {
                 for (int i = 0; i < inventorys.Count; i++)
                 {
-                    Console.WriteLine($"{i+1}. {inventorys[i]}");
+                    Console.WriteLine($"{i  +  1}. {inventorys[i]}");
                 }
             }
         }
 
-        public void SelectItemToSell(Character character, Planet currentPlanet)
+        // Counts up the total number of items the user has for the status menu.
+        public void InventoryCount()
         {
-            Console.WriteLine("Enter the number of the item you would like to sell: ");
-            int i = int.Parse(Console.ReadLine());
-            if (inventory[i] != NULL)
+            int waterCount = 0;
+            int oxygenCount = 0;
+            int goldCount = 0;
+
+            for (int i = 0; i < inventorys.Count; i++)
             {
-                string selectedItem = inventorys[i].itemName;
-                SellItem(character, currentPlanet, selectedItem);
-            }
-            else
-            {
-                cw
+                string counter = inventorys[i].itemName;
+
+                if (counter.StartsWith("W"))
+                {
+                    waterCount++;
+                }
+                else if (counter.StartsWith("G"))
+                {
+                    goldCount++;
+                }
+                else if (counter.StartsWith("O"))
+                {
+                    oxygenCount++;
+                }
             }
         }
 
+        // Checks if the character is going to be over weight. Used in the buy and sell function.
         public int GetCurrentCapacity(Character character)
         {
             character.totalWeight = 0;
@@ -67,13 +81,13 @@ namespace SpaceGame
         }
 
 
-         
+        // Buys an item from the planet store, subtracts from total money, and adds one to total weight.
         public (int, int) BuyItem(Character character, Planet currentPlanet, string itemName)
         {
             try
             {
                 var currentLoad = GetCurrentCapacity(character);
-                
+
 
                 if (character.totalWeight == Character.totalCapacity)
                 {
@@ -92,8 +106,8 @@ namespace SpaceGame
                     character.totalMoney = character.totalMoney - price;
                     character.totalWeight++;
                 }
-                
-                
+
+
             }
             catch (IndexOutOfRangeException)
             {
@@ -107,18 +121,36 @@ namespace SpaceGame
             return (character.totalMoney, character.totalWeight);
         }
 
-
-        public void SellItem(Character character, Planet currentPlanet, string itemName)
+        // Sells an item to the planet store, adds money to total money, removes the item from the list, and decrements total weight.
+        public void SellItem(Character character, Planet currentPlanet, string itemName, int position)
         {
 
-                int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
+            int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
 
-                character.totalMoney += price;
+            character.totalMoney += price;
 
-                // inventory.Remove(item);
+            inventorys.RemoveAt(position);
 
-                character.totalWeight--;
+            character.totalWeight--;
+        }
+
+        // Function to let the user select which item they want to sell from the list.
+        public int SelectItemToSell()
+        {
+        LOOP:
+            Console.WriteLine("Enter the number of the item you would like to sell: ");
+            int i = int.Parse(Console.ReadLine());
+            int position = 0;
+            if (inventorys[i] != null)
+            {
+                position = i - 1;
             }
+            else
+            {
+                Console.WriteLine("Did not input a valid item number.");
+                goto LOOP;
+            }
+            return position;
         }
     }
 
@@ -229,6 +261,7 @@ namespace SpaceGame
 
         }
     }
+}
 
 
 

@@ -79,10 +79,15 @@ namespace SpaceGame
 
         public double TimePassed(Character character, double distance, double warpSpeed)
         {
-            //Determine how to pass age into TimePassed
-            //var c = new Character();
             double time = Math.Round(distance / warpSpeed, 2);
             character.age += time;
+
+            if (character.age >= 60)
+            {
+                Console.WriteLine("You have reached 60 years of age, Captain. Your body can no longer withstand the rigors of space travel!");
+                Console.ReadLine();
+                ExitGame.exitGame();
+            }
 
             return time;
         }
