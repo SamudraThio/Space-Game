@@ -80,8 +80,26 @@ namespace SpaceGame
             return character.totalWeight;
         }
 
+        // First step of buying: Selects which item you want to buy.
+        public string SelectItemToBuy(Planet currentPlanet)
+        {
+        LOOP:
+            Console.WriteLine("Enter the number of the item you would like to buy: ");
+            int i = int.Parse(Console.ReadLine());
+            string buyItemName = "";
+            if (i < 0 || i > 5)
+            {
+                Console.WriteLine("Did not input a valid item number.");
+                goto LOOP;
+            }
+            else
+            {
+                buyItemName = currentPlanet.shop[i].itemName;
+            }
+            return buyItemName;
+        }
 
-        // Buys an item from the planet store, subtracts from total money, and adds one to total weight.
+        // Second step of buying: Buys an item from the planet store, subtracts from total money, and adds one to total weight.
         public (int, int) BuyItem(Character character, Planet currentPlanet, string itemName)
         {
             try
@@ -105,8 +123,19 @@ namespace SpaceGame
                 {
                     character.totalMoney = character.totalMoney - price;
                     character.totalWeight++;
+                    if (itemName.StartsWith("W"))
+                    {
+                        inventorys.Add(currentPlanet.shop[0]);
+                    }
+                    else if (itemName.StartsWith("G"))
+                    {
+                        inventorys.Add(currentPlanet.shop[1]);
+                    }
+                    else if (itemName.StartsWith("O"))
+                    {
+                        inventorys.Add(currentPlanet.shop[2]);
+                    }
                 }
-
 
             }
             catch (IndexOutOfRangeException)
@@ -121,20 +150,8 @@ namespace SpaceGame
             return (character.totalMoney, character.totalWeight);
         }
 
-        // Sells an item to the planet store, adds money to total money, removes the item from the list, and decrements total weight.
-        public void SellItem(Character character, Planet currentPlanet, string itemName, int position)
-        {
 
-            int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
-
-            character.totalMoney += price;
-
-            inventorys.RemoveAt(position);
-
-            character.totalWeight--;
-        }
-
-        // Function to let the user select which item they want to sell from the list.
+        // First step to selling: Lets the user select which item they want to sell from the list.
         public int SelectItemToSell()
         {
         LOOP:
@@ -152,6 +169,19 @@ namespace SpaceGame
             }
             return position;
         }
+
+        // Second step to selling: Sells an item to the planet store, adds money to total money, removes the item from the list, and decrements total weight.
+        public void SellItem(Character character, Planet currentPlanet, string itemName, int position)
+        {
+
+            int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
+
+            character.totalMoney += price;
+
+            inventorys.RemoveAt(position);
+
+            character.totalWeight--;
+        }
     }
 
     public class Item
@@ -159,6 +189,7 @@ namespace SpaceGame
         public string itemName;
         public int buyPrice;
         public int sellPrice;
+
 
         public Item(string itemName, int buyPrice, int sellPrice)
         {

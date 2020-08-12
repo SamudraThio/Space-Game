@@ -17,6 +17,7 @@ namespace SpaceGame
                 Character character = new Character();
                 Ship ship = new Ship();
                 Planet planet = new Planet();
+                Store store = new Store();
 
                 bool displayMenu = true;
                 while (displayMenu)
