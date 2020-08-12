@@ -6,13 +6,51 @@ namespace SpaceGame
     //TODO clean up red squigley's in Store
     public class Store
     {
-        public List<Item> inventory = new List<Item>();
+        public List<Item> inventorys = new List<Item>();
         List<Load> loads = new List<Load>();
-        
+
+        public void DisplayStore(Planet currentPlanet)
+        {
+            var lists = currentPlanet.shop;
+            Console.WriteLine("Item Name:          Buy Price:          Sell Price:          ");
+            foreach (var list in lists)
+            {
+                Console.WriteLine($"{list.itemName}          {list.buyPrice}          {list.sellPrice}");
+            }
+        }
+
+        public void DisplayInventory()
+        {
+            if (inventorys.Count == 0)
+            {
+                Console.WriteLine("You have nothing to sell");
+            }
+            else
+            {
+                for (int i = 0; i < inventorys.Count; i++)
+                {
+                    Console.WriteLine($"{i+1}. {inventorys[i]}");
+                }
+            }
+        }
+
+        public void SelectItemToSell(Character character, Planet currentPlanet)
+        {
+            Console.WriteLine("Enter the number of the item you would like to sell: ");
+            int i = int.Parse(Console.ReadLine());
+            if (inventory[i] != NULL)
+            {
+                string selectedItem = inventorys[i].itemName;
+                SellItem(character, currentPlanet, selectedItem);
+            }
+            else
+            {
+                cw
+            }
+        }
 
         public int GetCurrentCapacity(Character character)
         {
-            //return loads.Select(l => l.weight).Sum();
             character.totalWeight = 0;
 
             foreach (var load in loads)
@@ -70,14 +108,9 @@ namespace SpaceGame
         }
 
 
-        public void SellItem(Character character, Planet currentPlanet, string itemName, Item item)
+        public void SellItem(Character character, Planet currentPlanet, string itemName)
         {
-            if (character.totalWeight == 0)
-            {
-                Console.WriteLine("You have no items to sell.");
-            }
-            else
-            {
+
                 int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
 
                 character.totalMoney += price;
@@ -196,6 +229,6 @@ namespace SpaceGame
 
         }
     }
-}
+
 
 

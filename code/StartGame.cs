@@ -6,6 +6,8 @@ namespace SpaceGame
     public class StartGame
     
     {
+        internal double age;
+
         public static void Run()
         {
             try

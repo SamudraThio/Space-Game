@@ -6,7 +6,6 @@ namespace SpaceGame
 {
     public class Graphics
     {
-        //TODO add padright to hud
         public static void SplashScreen()
         {
             //Font courtesy of ascii.co.uk

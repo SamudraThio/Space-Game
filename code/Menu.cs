@@ -37,19 +37,19 @@ namespace SpaceGame
             switch (Console.ReadLine())
             {
                 case "1":
-                    ship.Travel(Planet.Earth());
+                    ship.Travel(character, Planet.Earth());
                     return true;
                 case "2":
-                    ship.Travel(Planet.AlphaProxima());
+                    ship.Travel(character, Planet.AlphaProxima());
                     return true;
                 case "3":
-                    ship.Travel(Planet.Exandria());
+                    ship.Travel(character, Planet.Exandria());
                     return true;
                 case "4":
-                    ship.Travel(Planet.Midgard());
+                    ship.Travel(character, Planet.Midgard());
                     return true;
                 case "5":
-                    ship.Travel(Planet.MiddleEarth());
+                    ship.Travel(character, Planet.MiddleEarth());
                     return true;
                 default:
                     return true;
