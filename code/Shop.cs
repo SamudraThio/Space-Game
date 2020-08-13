@@ -15,16 +15,20 @@ namespace SpaceGame
             Console.WriteLine("Item Name:          Buy Price:          Sell Price:          ");
             foreach (var list in lists)
             {
-                Console.WriteLine($"{list.itemName}          {list.buyPrice}          {list.sellPrice}");
+                Console.WriteLine($"{list.itemName}                    {list.buyPrice}                    {list.sellPrice}");
             }
+            Console.WriteLine("0: Water | 1: Oxygen | 2: Gold | 3: Fuel");
         }
 
         // Displays the inventory - used when looking for items to sell.
-        public static void DisplayInventory()
+        public static void DisplayInventory(Character character, Ship ship, Planet planet, Store store)
         {
             if (inventorys.Count == 0)
             {
                 Console.WriteLine("You have nothing to in your inventory.");
+                Console.ReadLine();
+                Menu.ShoppingMainMenu(character, ship, planet, store);
+
             }
             else
             {
@@ -121,22 +125,38 @@ namespace SpaceGame
                 else
                 {
                     character.totalMoney = character.totalMoney - price;
-                    character.totalWeight++;
+                    
                     if (itemName.StartsWith("W"))
                     {
                         inventorys.Add(currentPlanet.shop[0]);
                         character.water++;
+                        character.totalWeight++;
                     }
                     else if (itemName.StartsWith("G"))
                     {
-                        inventorys.Add(currentPlanet.shop[1]);
+                        inventorys.Add(currentPlanet.shop[2]);
                         character.gold++;
+                        character.totalWeight++;
                     }
                     else if (itemName.StartsWith("O"))
                     {
-                        inventorys.Add(currentPlanet.shop[2]);
+                        inventorys.Add(currentPlanet.shop[1]);
                         character.oxygen++;
+                        character.totalWeight++;
                     }
+                    else if (itemName.StartsWith("F"))  
+                    {
+                        if (character.fuel >= 10)
+                        {
+                            Console.WriteLine("We're all maxed out on fuel, Captain!");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            character.fuel++;
+                        }
+                    }
+
                 }
 
             }
@@ -154,18 +174,31 @@ namespace SpaceGame
 
 
         // First step to selling: Lets the user select which item they want to sell from the list.
-        public static (int, string) SelectItemToSell(Planet currentPlanet)
+        public static (int, string) SelectItemToSell(Planet currentPlanet, Character character)
         {
         LOOP:
-            int position = 0;
+            int position;
             string sellItemName = "";
             Console.WriteLine();
             Console.WriteLine("Enter the number of the item you would like to sell: ");
             int i = int.Parse(Console.ReadLine());
-            if (inventorys[i-1] != null)
+            position = i - 1;
+            if (inventorys[position] != null)
             {
-                position = i - 1;
-                sellItemName = currentPlanet.shop[position].itemName;
+                sellItemName = inventorys[position].itemName;
+
+                if (sellItemName.StartsWith("W"))
+                {
+                    character.water--;
+                }
+                else if (sellItemName.StartsWith("G"))
+                {
+                    character.gold--;
+                }
+                else if (sellItemName.StartsWith("O"))
+                {
+                    character.oxygen--;
+                }
             }
             else
             {
@@ -182,7 +215,6 @@ namespace SpaceGame
             int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);
 
             character.totalMoney += price;
-
             inventorys.RemoveAt(position);
 
             character.totalWeight--;
@@ -205,10 +237,10 @@ namespace SpaceGame
 
         public static List<Item> EarthStore()
         {
-            Item water = new Item("Water", 100, 100);
-            Item oxygen = new Item("Oxygen", 100, 100);
-            Item gold = new Item("Gold", 100, 100);
-            Item fuel = new Item("Fuel", 50, 50);
+            Item water = new Item("Water", 5000, 5000);
+            Item oxygen = new Item("Oxygen", 5000, 5000);
+            Item gold = new Item("Gold", 5000, 5000);
+            Item fuel = new Item("Fuel", 500, 500);
 
             List<Item> earthStore = new List<Item>() { water, oxygen, gold, fuel };
 
@@ -216,10 +248,10 @@ namespace SpaceGame
         }
         public static List<Item> AlphaProximaStore()
         {
-            Item water = new Item("Water", 100, 100);
-            Item oxygen = new Item("Oxygen", 100, 100);
-            Item gold = new Item("Gold", 100, 100);
-            Item fuel = new Item("Fuel", 50, 50);
+            Item water = new Item("Water", 7500, 7500);
+            Item oxygen = new Item("Oxygen", 2500, 2500);
+            Item gold = new Item("Gold", 5000, 5000);
+            Item fuel = new Item("Fuel", 500, 500);
 
             List<Item> alphaProximaStore = new List<Item>() { water, oxygen, gold, fuel };
 
@@ -227,10 +259,10 @@ namespace SpaceGame
         }
         public static List<Item> ExandriaStore()
         {
-            Item water = new Item("Water", 100, 100);
-            Item oxygen = new Item("Oxygen", 100, 100);
-            Item gold = new Item("Gold", 100, 100);
-            Item fuel = new Item("Fuel", 50, 50);
+            Item water = new Item("Water", 2500, 2500);
+            Item oxygen = new Item("Oxygen", 7500, 7500);
+            Item gold = new Item("Gold", 5000, 5000);
+            Item fuel = new Item("Fuel", 500, 500);
 
             List<Item> exandriaStore = new List<Item>() { water, oxygen, gold, fuel };
 
@@ -238,10 +270,10 @@ namespace SpaceGame
         }
         public static List<Item> MidgardStore()
         {
-            Item water = new Item("Water", 100, 100);
-            Item oxygen = new Item("Oxygen", 100, 100);
-            Item gold = new Item("Gold", 100, 100);
-            Item fuel = new Item("Fuel", 50, 50);
+            Item water = new Item("Water", 5000, 5000);
+            Item oxygen = new Item("Oxygen", 7500, 7500);
+            Item gold = new Item("Gold", 2500, 2500);
+            Item fuel = new Item("Fuel", 500, 500);
 
             List<Item> midgardStore = new List<Item>() { water, oxygen, gold, fuel };
 
@@ -249,10 +281,10 @@ namespace SpaceGame
         }
         public static List<Item> MiddleEarthStore()
         {
-            Item water = new Item("Water", 100, 100);
-            Item oxygen = new Item("Oxygen", 100, 100);
-            Item gold = new Item("Gold", 100, 100);
-            Item fuel = new Item("Fuel", 50, 50);
+            Item water = new Item("Water", 2500, 2500);
+            Item oxygen = new Item("Oxygen", 5000, 5000);
+            Item gold = new Item("Gold", 7500,7500);
+            Item fuel = new Item("Fuel", 500, 500);
 
             List<Item> middleEarthStore = new List<Item>() { water, oxygen, gold, fuel };
 

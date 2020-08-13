@@ -9,6 +9,7 @@ namespace SpaceGame
         // Will track fuel and fuel capacity
         public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
         public Planet newPlanet;
+        public double time;
 
         public double Distance(Planet newPlanet)
         {

@@ -69,8 +69,9 @@ namespace SpaceGame
                     Store.BuyItem(character, ship.currentPlanet, buyItemName);
                     return true;
                 case "2":
-                    Store.DisplayInventory();
-                    (int position, string sellItemName) = Store.SelectItemToSell(ship.currentPlanet);
+                    Store.DisplayInventory(character, ship, planet, store);
+                    (int position, string sellItemName) = Store.SelectItemToSell(ship.currentPlanet, character);
+                    Console.WriteLine($"Position is equal to {position}");
                     Store.SellItem(character, ship.currentPlanet, sellItemName, position);
                     return true;
                 case "3":
@@ -80,65 +81,5 @@ namespace SpaceGame
                     return true;
             }
         }
-
-        //public static bool ShoppingBuyMenu(Character character, Ship ship, Planet planet)
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingBuyMenu(character, ship);
-
-        //    switch (Console.ReadLine())
-        //    {
-        //        case "1":
-        //            Store.BuyItem(character, planet);
-        //            return true;
-        //        case "2":
-        //            Store.BuyItem(character, planet);
-        //            return true;
-        //        case "3":
-        //            Store.BuyItem(character, planet);
-        //            return true;
-        //        case "4":
-        //            Store.BuyItem(character, planet);
-        //            return true;
-        //        case "5":
-        //            Graphics.ShoppingMainMenu(character, ship);
-        //            return true;
-        //        case "6":
-        //            MainMenu(character, ship, planet);
-        //            return true;
-        //        default:
-        //            return true;
-        //    }
-        //}
-
-        //public static bool ShoppingSellMenu(Character character, Ship ship, Planet planet)
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingBuyMenu(character, ship);
-
-        //    switch (Console.ReadLine())
-        //    {
-        //        case "1":
-        //            Store.SellItem(character, planet);
-        //            return true;
-        //        case "2":
-        //            Store.SellItem();
-        //            return true;
-        //        case "3":
-        //            Store.SellItem();
-        //            return true;
-        //        case "4":
-        //            Store.SellItem();
-        //            return true;
-        //        case "5":
-        //            Graphics.ShoppingMainMenu(character, ship);
-        //            return true;
-        //        case "6":
-        //            MainMenu(character, ship, planet);
-        //            return true;
-        //        default:
-        //            return true;
-        //    }
-        //}
     }
 }

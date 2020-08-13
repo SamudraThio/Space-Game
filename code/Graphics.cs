@@ -34,15 +34,16 @@ namespace SpaceGame
 
         public static void MainMenu(Character character, Ship ship)
         {
+            double year = 2020 + ship.time;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(@"
+            Console.WriteLine($@"
 ***********************************************************************************************
 **                                                                                           **
 **                                                                                           **
 **                                       LOST IN SPACE!                                      **
 **                                                                                           **
-**          The year is 2020, the Earth is in shambles! One young Space Captain has          **
+**          The year is {year}, the Earth is in shambles! One young Space Captain has          **
 **          heard of an opportunity to escape this dying planet, and even this whole         **
 **          galaxy! Elon Musk has created a utopia, referred to only as ArkX, which          **
 **          anyone can find refuge in. But only if they can afford a ticket to               **

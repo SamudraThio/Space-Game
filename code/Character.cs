@@ -17,11 +17,7 @@ namespace SpaceGame
         public const int totalCapacity = 10;
         public const int fuelCapacity = 10;
 
-
-
-        
-    }
-    
+    }    
 }        
 
     
