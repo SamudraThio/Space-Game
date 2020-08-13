@@ -16,10 +16,10 @@ namespace SpaceGame
                     TravelMenu(character, ship);
                     return true;
                 case "2":
-                    store.DisplayStore(ship.currentPlanet);
+                    ShoppingMainMenu(character, ship, planet, store);
                     return true;
                 case "3":
-                    store.DisplayStore(ship.currentPlanet);
+                    ShoppingMainMenu(character, ship, planet, store);
                     return true;
                 case "4":
                     ExitGame.exitGame();
@@ -56,26 +56,30 @@ namespace SpaceGame
             }
         }
 
-        //public static bool ShoppingMainMenu(Character character, Ship ship, Planet planet, Store store)
-        //{
-        //    Console.Clear();
-        //    Graphics.ShoppingMainMenu(character, ship);
+        public static bool ShoppingMainMenu(Character character, Ship ship, Planet planet, Store store)
+        {
+            Console.Clear();
+            Graphics.ShoppingMainMenu(character, ship);
+            Store.DisplayStore(ship.currentPlanet);
 
-        //    switch (Console.ReadLine())
-        //    {
-        //        case "1":
-        //            store.DisplayStore(ship.currentPlanet);
-        //            return true;
-        //        case "2":
-        //            //ShoppingSellMenu(character, ship, planet);
-        //            return true;
-        //        case "3":
-        //            Graphics.ShoppingMainMenu(character, ship);
-        //            return true;
-        //        default:
-        //            return true;
-        //    }
-        //}
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    string buyItemName = Store.SelectItemToBuy(ship.currentPlanet);
+                    Store.BuyItem(character, ship.currentPlanet, buyItemName);
+                    return true;
+                case "2":
+                    Store.DisplayInventory();
+                    (int position, string sellItemName) = Store.SelectItemToSell(ship.currentPlanet);
+                    Store.SellItem(character, ship.currentPlanet, sellItemName, position);
+                    return true;
+                case "3":
+                    Graphics.ShoppingMainMenu(character, ship);
+                    return true;
+                default:
+                    return true;
+            }
+        }
 
         //public static bool ShoppingBuyMenu(Character character, Ship ship, Planet planet)
         //{

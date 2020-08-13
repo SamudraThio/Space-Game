@@ -133,7 +133,7 @@ namespace SpaceGame
         {
             string border = "**";
             string age = $"Age:    {C.age}";
-            string fuel = $"Fuel: {S.fuel}";
+            string fuel = $"Fuel: {C.fuel}";
             string water = $"Water:  {C.water}";
             string money = $"Money:  {C.totalMoney}";
             string load = $"Load: {C.totalWeight}";
@@ -146,23 +146,23 @@ namespace SpaceGame
 **        | {C.name} |                 | USS Enterprise |               | Cargo |        **
 **___________________________________________________________________________________________**
 **                                                                                           **");
-            Console.Write("{0, 0}{0, 5}{0, 35}{0, 70}(0, 100}",
-                border [0], age[1], fuel[2], water[3], border[4]);
+            //Console.Write("{0, 0}{0, 5}{0, 35}{0, 70}(0, 100}",
+            //    border [0], age[1], fuel[2], water[3], border[4]);
 
-            //Console.Write(border);
-            //Console.Write(age.PadRight(5));
-            //Console.Write(fuel.PadLeft(40));
-            //Console.Write(water.PadLeft(33));
-            //Console.WriteLine(border.PadLeft(10));
-            //Console.Write(border);
-            //Console.Write(money.PadLeft(5));
-            //Console.Write(load.PadLeft(35));
-            //Console.Write(gold.PadLeft(34));
-            //Console.WriteLine(border.PadLeft(10));
-            //Console.Write(border);
-            //Console.Write(planet.PadLeft(5));
-            //Console.Write(oxygen.PadLeft(70));
-            //Console.Write(border.PadLeft(10));
+            Console.Write(border);
+            Console.Write(age.PadRight(5));
+            Console.Write(fuel.PadLeft(40));
+            Console.Write(water.PadLeft(33));
+            Console.WriteLine(border.PadLeft(10));
+            Console.Write(border);
+            Console.Write(money.PadLeft(5));
+            Console.Write(load.PadLeft(35));
+            Console.Write(gold.PadLeft(34));
+            Console.WriteLine(border.PadLeft(10));
+            Console.Write(border);
+            Console.Write(planet.PadLeft(5));
+            Console.Write(oxygen.PadLeft(70));
+            Console.Write(border.PadLeft(10));
             Console.Write(@$"
 **                                                                                           **
 ***********************************************************************************************");

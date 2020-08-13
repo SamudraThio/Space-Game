@@ -3,14 +3,13 @@ using System.Collections.Generic;
 
 namespace SpaceGame
 {
-    //TODO clean up red squigley's in Store
     public class Store
     {
-        public List<Item> inventorys = new List<Item>();
-        List<Load> loads = new List<Load>();
+        public static List<Item> inventorys = new List<Item>();
+        public static List<Load> loads = new List<Load>();
 
         // Pulls the current planet's store and displays the items, buying price, and selling price.
-        public void DisplayStore(Planet currentPlanet)
+        public static void DisplayStore(Planet currentPlanet)
         {
             var lists = currentPlanet.shop;
             Console.WriteLine("Item Name:          Buy Price:          Sell Price:          ");
@@ -21,7 +20,7 @@ namespace SpaceGame
         }
 
         // Displays the inventory - used when looking for items to sell.
-        public void DisplayInventory()
+        public static void DisplayInventory()
         {
             if (inventorys.Count == 0)
             {
@@ -29,9 +28,10 @@ namespace SpaceGame
             }
             else
             {
+                Console.WriteLine("Inventory List(Select the number below for the item you want to sell.");
                 for (int i = 0; i < inventorys.Count; i++)
                 {
-                    Console.WriteLine($"{i  +  1}. {inventorys[i]}");
+                    Console.WriteLine($"{i  +  1}. {inventorys[i].itemName}");
                 }
             }
         }
@@ -63,10 +63,8 @@ namespace SpaceGame
         }
 
         // Checks if the character is going to be over weight. Used in the buy and sell function.
-        public int GetCurrentCapacity(Character character)
+        public static int GetCurrentCapacity(Character character)
         {
-            character.totalWeight = 0;
-
             foreach (var load in loads)
             {
                 character.totalWeight += load.weight;
@@ -74,6 +72,7 @@ namespace SpaceGame
                 if (character.totalWeight > Character.totalCapacity)
                 {
                     Console.WriteLine("The ship is overloaded, Captain! We have to sell off some goods before we can take off!");
+                    Console.ReadLine();
                 }
             }
 
@@ -81,7 +80,7 @@ namespace SpaceGame
         }
 
         // First step of buying: Selects which item you want to buy.
-        public string SelectItemToBuy(Planet currentPlanet)
+        public static string SelectItemToBuy(Planet currentPlanet)
         {
         LOOP:
             Console.WriteLine("Enter the number of the item you would like to buy: ");
@@ -100,7 +99,7 @@ namespace SpaceGame
         }
 
         // Second step of buying: Buys an item from the planet store, subtracts from total money, and adds one to total weight.
-        public (int, int) BuyItem(Character character, Planet currentPlanet, string itemName)
+        public static (int, int) BuyItem(Character character, Planet currentPlanet, string itemName)
         {
             try
             {
@@ -126,14 +125,17 @@ namespace SpaceGame
                     if (itemName.StartsWith("W"))
                     {
                         inventorys.Add(currentPlanet.shop[0]);
+                        character.water++;
                     }
                     else if (itemName.StartsWith("G"))
                     {
                         inventorys.Add(currentPlanet.shop[1]);
+                        character.gold++;
                     }
                     else if (itemName.StartsWith("O"))
                     {
                         inventorys.Add(currentPlanet.shop[2]);
+                        character.oxygen++;
                     }
                 }
 
@@ -152,26 +154,29 @@ namespace SpaceGame
 
 
         // First step to selling: Lets the user select which item they want to sell from the list.
-        public int SelectItemToSell()
+        public static (int, string) SelectItemToSell(Planet currentPlanet)
         {
         LOOP:
+            int position = 0;
+            string sellItemName = "";
+            Console.WriteLine();
             Console.WriteLine("Enter the number of the item you would like to sell: ");
             int i = int.Parse(Console.ReadLine());
-            int position = 0;
-            if (inventorys[i] != null)
+            if (inventorys[i-1] != null)
             {
                 position = i - 1;
+                sellItemName = currentPlanet.shop[position].itemName;
             }
             else
             {
                 Console.WriteLine("Did not input a valid item number.");
                 goto LOOP;
             }
-            return position;
+            return (position, sellItemName);
         }
 
         // Second step to selling: Sells an item to the planet store, adds money to total money, removes the item from the list, and decrements total weight.
-        public void SellItem(Character character, Planet currentPlanet, string itemName, int position)
+        public static void SellItem(Character character, Planet currentPlanet, string itemName, int position)
         {
 
             int price = Item.PurchaseCostOf(itemName, currentPlanet.shop);

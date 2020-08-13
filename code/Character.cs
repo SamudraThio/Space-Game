@@ -12,9 +12,12 @@ namespace SpaceGame
         public int water = 0;
         public int oxygen = 0;
         public int gold = 0;
+        public int fuel = 10;
         public int totalWeight = 0;
         public const int totalCapacity = 10;
         public const int fuelCapacity = 10;
+
+
 
         
     }

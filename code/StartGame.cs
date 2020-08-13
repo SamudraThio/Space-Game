@@ -6,8 +6,6 @@ namespace SpaceGame
     public class StartGame
     
     {
-        internal double age;
-
         public static void Run()
         {
             try
@@ -22,7 +20,7 @@ namespace SpaceGame
                 bool displayMenu = true;
                 while (displayMenu)
                 {
-                    displayMenu = Menu.MainMenu(character, ship, planet);
+                    displayMenu = Menu.MainMenu(character, ship, planet, store);
                 }
             }
 

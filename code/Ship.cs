@@ -4,11 +4,9 @@ using System.Net.Http;
 
 namespace SpaceGame
 {
-    //TODO resolve red squigley's in Ship
-
     public class Ship
     {
-        public int fuel = 10; // Will track fuel and fuel capacity
+        // Will track fuel and fuel capacity
         public Planet currentPlanet = Planet.Earth();  //Will Track current location of the ship
         public Planet newPlanet;
 
@@ -54,13 +52,13 @@ namespace SpaceGame
 
                     double warpSpeed = firstWarpValue + secondWarpValue;
 
-                    if (fuel - warpLevel < 0)
+                    if (character.fuel - warpLevel < 0)
                     {
                         Console.WriteLine("We don't have that much fuel, Captain!");
                     }
                     else
                     {
-                        SubtractFuel(warpLevel);
+                        SubtractFuel(warpLevel, character);
 
                         TimePassed(character, distance, warpSpeed);
 
@@ -98,24 +96,24 @@ namespace SpaceGame
             return currentPlanet;
         }
 
-        public int SubtractFuel(int warpLevel)
+        public int SubtractFuel(int warpLevel, Character character)
         {
-            this.fuel -= warpLevel;
+            character.fuel -= warpLevel;
 
-            return fuel;
+            return character.fuel;
         }
 
-        public int AddFuel(int fuel)
+        public int AddFuel(Character character)
         {
-            if (fuel < Character.fuelCapacity)
+            if (character.fuel < Character.fuelCapacity)
             {
-                this.fuel += fuel;
-                return fuel;
+                character.fuel++;
+                return character.fuel;
             }
             else
             {
                 Console.WriteLine("Sir, our fuel is at maximum capacity!");
-                return fuel;
+                return character.fuel;
             }
         }
     }
